@@ -1,12 +1,13 @@
 
+
 <svg xmlns="http://www.w3.org/2000/svg" width="1270" height="541" viewBox="0 0 1270 541">
   <defs>
     <linearGradient id="bg" x2="1" y2="1">
-      <stop stop-color="#FFFCFD"/>
+      <stop offset="0" stop-color="#FFFCFD"/>
       <stop offset="1" stop-color="#F9E1E9"/>
     </linearGradient>
     <linearGradient id="rose">
-      <stop stop-color="#9B123C"/>
+      <stop offset="0" stop-color="#9B123C"/>
       <stop offset="1" stop-color="#D8527D"/>
     </linearGradient>
     <style>
@@ -17,19 +18,23 @@
       .body{font-size:12px;fill:#815365}
       .panel{fill:#fff;stroke:#F5D9E3;stroke-width:1.3}
       .card{opacity:0;animation:appear .8s ease-out forwards}
-      .c1{animation-delay:.1s}.c2{animation-delay:.25s}
-      .c3{animation-delay:.4s}.c4{animation-delay:.55s}
-      .arrow{animation:arrowPulse 1.8s ease-in-out infinite}
-      .flow{fill:none;stroke:#D8527D;stroke-width:2;stroke-dasharray:4 5;animation:dash 3s linear infinite}
-      .dot{animation:dotPulse 2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-      .d2{animation-delay:.25s}.d3{animation-delay:.5s}.d4{animation-delay:.75s}
-      .bar{transform-box:fill-box;transform-origin:left center;animation:grow 1.2s ease-out both}
-      .b2{animation-delay:.2s}.b3{animation-delay:.4s}.b4{animation-delay:.6s}
-      .float{animation:float 3.5s ease-in-out infinite}
-      @keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-      @keyframes dash{to{stroke-dashoffset:-36}}
-      @keyframes arrowPulse{0%,100%{opacity:.7}50%{opacity:1}}
-      @keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.4}}
+      .c1{animation-delay:.1s}
+      .c2{animation-delay:.3s}
+      .c3{animation-delay:.5s}
+      .c4{animation-delay:.7s}
+      .flow{fill:none;stroke:#D8527D;stroke-width:2;stroke-dasharray:5 5;animation:dash 2s linear infinite}
+      .pulse{animation:pulse 2.2s ease-in-out infinite}
+      .bar{transform-box:fill-box;transform-origin:left center;animation:grow 1.5s ease-out both}
+      .b2{animation-delay:.25s}
+      .b3{animation-delay:.5s}
+      .b4{animation-delay:.75s}
+      .float{animation:float 3s ease-in-out infinite}
+      @keyframes appear{
+        from{opacity:0;transform:translateY(10px)}
+        to{opacity:1;transform:translateY(0)}
+      }
+      @keyframes dash{to{stroke-dashoffset:-40}}
+      @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
       @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
       @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
     </style>
@@ -44,197 +49,185 @@
   <!-- Header -->
   <rect x="48" y="26" width="47" height="47" rx="12" fill="url(#rose)"/>
   <g transform="translate(71 49)" stroke="#fff" fill="none" stroke-width="2">
-    <circle cy="-8" r="3.5"/><circle cx="-9" cy="7" r="3.5"/><circle cx="9" cy="7" r="3.5"/>
-    <path d="M0 -4V0L-7 4M0 0L7 4"/>
+    <circle r="9"/>
+    <path d="M0 -14V-9M0 9V14M-14 0H-9M9 0H14"/>
+    <circle r="3"/>
   </g>
-  <text x="110" y="38" class="label">PART E / MACHINE LEARNING</text>
-  <text x="110" y="68" class="title">Tree-Based Classification Models</text>
-  <text x="48" y="105" class="body">Train models • Predict classes • Compare results</text>
-  <text x="1220" y="42" text-anchor="end" class="label">MODEL INTELLIGENCE / 05</text>
+  <text x="110" y="38" class="label">PART F / MACHINE LEARNING</text>
+  <text x="110" y="68" class="title">Hyperparameter Tuning</text>
+  <text x="48" y="105" class="body">Search • Optimize • Validate • Select</text>
+  <text x="1220" y="42" text-anchor="end" class="label">MODEL OPTIMIZATION / 06</text>
 
-  <!-- Workflow panel -->
   <rect x="48" y="133" width="850" height="360" rx="18" class="panel"/>
-  <text x="68" y="161" class="label">MODELING WORKFLOW</text>
+  <text x="68" y="161" class="label">TUNING WORKFLOW</text>
 
-  <!-- Input card -->
+  <!-- Stage 1 -->
   <g class="card c1">
     <rect x="62" y="180" width="190" height="294" rx="13" fill="#FFF8FA" stroke="#F5D9E3"/>
     <circle cx="85" cy="207" r="14" fill="#F8D8E3"/>
     <g transform="translate(85 207)" stroke="#9B123C" fill="none" stroke-width="1.7">
-      <ellipse rx="7" ry="3" cy="-5"/><path d="M-7 -5V5C-7 9 7 9 7 5V-5M-7 0C-7 4 7 4 7 0"/>
+      <rect x="-7" y="-7" width="14" height="14" rx="3"/>
+      <path d="M-3 -3H3M-3 1H3"/>
     </g>
-    <text x="107" y="203" class="label">01 / INPUT</text>
-    <text x="78" y="239" class="head">Prepared Dataset</text>
+    <text x="107" y="203" class="label">01 / MODEL</text>
+    <text x="78" y="239" class="head">Choose Model</text>
 
-    <rect x="77" y="257" width="160" height="102" rx="7" fill="#FCECF1"/>
-    <rect x="77" y="257" width="160" height="23" rx="7" fill="#F7D5E1"/>
-    <path d="M77 280H237M77 305H237M77 330H237M130 257V359M184 257V359" stroke="#EEC2D1"/>
-    <g font-size="9" fill="#8F193C" font-weight="700">
-      <text x="83" y="272">Feature A</text><text x="136" y="272">Feature B</text><text x="190" y="272">Target</text>
+    <rect x="77" y="257" width="160" height="52" rx="8" fill="#FCECF1"/>
+    <g transform="translate(98 283)" stroke="#9B123C" fill="none" stroke-width="1.7">
+      <circle cy="-7" r="3"/><circle cx="-7" cy="6" r="3"/><circle cx="7" cy="6" r="3"/>
+      <path d="M0 -4V0L-7 3M0 0L7 3"/>
     </g>
-    <g fill="#E9A8BD">
-      <rect x="84" y="288" width="35" height="7" rx="3"/>
-      <rect x="137" y="288" width="35" height="7" rx="3"/>
-      <rect x="84" y="313" width="35" height="7" rx="3"/>
-      <rect x="137" y="313" width="35" height="7" rx="3"/>
-      <rect x="84" y="338" width="35" height="7" rx="3"/>
-      <rect x="137" y="338" width="35" height="7" rx="3"/>
+    <text x="117" y="280" font-size="12" font-weight="700" fill="#351321">Decision Tree</text>
+    <text x="117" y="295" class="body">Base estimator</text>
+
+    <rect x="77" y="317" width="160" height="52" rx="8" fill="#FCECF1"/>
+    <g transform="translate(98 343)" stroke="#9B123C" fill="none" stroke-width="1.7">
+      <path d="M-9 7L-6 -7L-2 7M1 7L4 -6L8 7M-11 9H10"/>
     </g>
-    <g fill="#B62250">
-      <circle cx="210" cy="292" r="5"/><circle cx="210" cy="317" r="5"/><circle cx="210" cy="342" r="5"/>
-    </g>
-    <text x="78" y="392" class="body">Clean features</text>
-    <text x="78" y="411" class="body">and target labels</text>
+    <text x="117" y="340" font-size="12" font-weight="700" fill="#351321">Random Forest</text>
+    <text x="117" y="355" class="body">Ensemble model</text>
+    <text x="78" y="401" class="body">Define parameters</text>
+    <text x="78" y="419" class="body">to improve results</text>
     <rect x="78" y="436" width="117" height="23" rx="11" fill="#F8DDE7"/>
-    <text x="136" y="451" text-anchor="middle" font-size="10" font-weight="700" fill="#9B123C">TRAIN / TEST SPLIT</text>
+    <text x="136" y="451" text-anchor="middle" font-size="10" font-weight="700" fill="#9B123C">MODEL SETUP</text>
   </g>
 
   <path d="M254 326H271" class="flow"/>
-  <circle cx="263" cy="326" r="9" fill="#D8527D" class="arrow"/>
+  <circle cx="263" cy="326" r="9" fill="#D8527D" class="pulse"/>
   <path d="M260 322L265 326L260 330" fill="none" stroke="#fff" stroke-width="1.5"/>
 
-  <!-- Training card -->
+  <!-- Stage 2 -->
   <g class="card c2">
     <rect x="276" y="180" width="190" height="294" rx="13" fill="#FFF8FA" stroke="#F5D9E3"/>
     <circle cx="299" cy="207" r="14" fill="#F8D8E3"/>
     <g transform="translate(299 207)" stroke="#9B123C" fill="none" stroke-width="1.7">
-      <circle cy="-6" r="3"/><circle cx="-7" cy="6" r="3"/><circle cx="7" cy="6" r="3"/>
-      <path d="M0 -3V0L-7 3M0 0L7 3"/>
+      <circle r="7"/><path d="M5 5L10 10M-3 0H3M0 -3V3"/>
     </g>
-    <text x="321" y="203" class="label">02 / TRAIN</text>
-    <text x="292" y="239" class="head">Tree-Based Models</text>
-
-    <rect x="291" y="257" width="160" height="48" rx="8" fill="#FCECF1"/>
-    <g transform="translate(311 279)" stroke="#9B123C" fill="none" stroke-width="1.7">
-      <circle cy="-7" r="3"/><circle cx="-7" cy="7" r="3"/><circle cx="7" cy="7" r="3"/>
-      <path d="M0 -4V0L-7 4M0 0L7 4"/>
+    <text x="321" y="203" class="label">02 / SEARCH</text>
+    <text x="292" y="239" class="head">Search Methods</text>
+    <rect x="291" y="257" width="160" height="68" rx="8" fill="#FCECF1"/>
+    <g transform="translate(307 273)" stroke="#9B123C" fill="none" stroke-width="1.5">
+      <rect width="16" height="16" rx="2"/>
+      <path d="M5 0V16M11 0V16M0 5H16M0 11H16"/>
     </g>
-    <text x="331" y="276" font-size="12" font-weight="700" fill="#351321">Decision Tree</text>
-    <text x="331" y="291" class="body">Single tree</text>
-
-    <rect x="291" y="313" width="160" height="48" rx="8" fill="#FCECF1"/>
-    <g transform="translate(311 337)" stroke="#9B123C" fill="none" stroke-width="1.6">
-      <path d="M-9 7L-6 -7L-2 7M1 7L4 -6L8 7M-11 9H10"/>
+    <text x="333" y="275" font-size="12" font-weight="700" fill="#351321">Grid Search</text>
+    <text x="303" y="296" class="body">Tests combinations</text>
+    <text x="303" y="311" class="body">systematically</text>
+    <rect x="291" y="334" width="160" height="68" rx="8" fill="#FCECF1"/>
+    <g transform="translate(315 351)" stroke="#9B123C" fill="none" stroke-width="1.6">
+      <circle cx="-5" cy="-4" r="3"/><circle cx="6" cy="-6" r="3"/>
+      <circle cx="2" cy="6" r="3"/><circle cx="-8" cy="8" r="2"/>
     </g>
-    <text x="331" y="332" font-size="12" font-weight="700" fill="#351321">Random Forest</text>
-    <text x="331" y="347" class="body">Multiple trees</text>
-
-    <rect x="291" y="369" width="160" height="48" rx="8" fill="#FCECF1"/>
-    <g transform="translate(311 393)" stroke="#9B123C" fill="none" stroke-width="1.6">
-      <rect x="-8" y="-7" width="16" height="13" rx="2"/><path d="M-5 -10H11V2M-11 -2H5V10"/>
-    </g>
-    <text x="331" y="388" font-size="12" font-weight="700" fill="#351321">Gradient Boosting</text>
-    <text x="331" y="403" class="body">Sequential learning</text>
-    <text x="292" y="444" class="body">Train and compare</text>
+    <text x="333" y="352" font-size="12" font-weight="700" fill="#351321">Random Search</text>
+    <text x="303" y="374" class="body">Samples parameter</text>
+    <text x="303" y="389" class="body">combinations</text>
+    <text x="292" y="444" class="body">Compare search results</text>
   </g>
 
   <path d="M468 326H485" class="flow"/>
-  <circle cx="477" cy="326" r="9" fill="#D8527D" class="arrow"/>
+  <circle cx="477" cy="326" r="9" fill="#D8527D" class="pulse"/>
   <path d="M474 322L479 326L474 330" fill="none" stroke="#fff" stroke-width="1.5"/>
 
-  <!-- Prediction card -->
+  <!-- Stage 3 -->
   <g class="card c3">
     <rect x="490" y="180" width="190" height="294" rx="13" fill="#FFF8FA" stroke="#F5D9E3"/>
     <circle cx="513" cy="207" r="14" fill="#F8D8E3"/>
-    <g transform="translate(513 207)" stroke="#9B123C" fill="none" stroke-width="1.8">
-      <path d="M-8 7L-2 1L2 4L8 -6M3 -6H8V-1"/>
+    <g transform="translate(513 207)" stroke="#9B123C" fill="none" stroke-width="1.7">
+      <path d="M-8 -6H8M-8 0H8M-8 6H8"/>
+      <circle cx="-2" cy="-6" r="2.5" fill="#fff"/>
+      <circle cx="4" cy="0" r="2.5" fill="#fff"/>
+      <circle cx="-4" cy="6" r="2.5" fill="#fff"/>
     </g>
-    <text x="535" y="203" class="label">03 / PREDICT</text>
-    <text x="506" y="239" class="head">Class Prediction</text>
-
+    <text x="535" y="203" class="label">03 / TUNE</text>
+    <text x="506" y="239" class="head">Adjust Parameters</text>
     <rect x="505" y="257" width="160" height="140" rx="9" fill="#FFF1F6" stroke="#F3D3DE"/>
-    <path d="M517 331C540 316 550 353 574 326S618 308 649 329" stroke="#D8527D" stroke-width="1.5" stroke-dasharray="4 4" fill="none" class="flow"/>
-    <g fill="#B62250">
-      <circle cx="523" cy="281" r="4" class="dot"/>
-      <circle cx="541" cy="295" r="4" class="dot d2"/>
-      <circle cx="558" cy="278" r="4" class="dot d3"/>
-      <circle cx="571" cy="301" r="4" class="dot d4"/>
-      <circle cx="590" cy="285" r="4" class="dot"/>
-      <circle cx="610" cy="300" r="4" class="dot d2"/>
-      <circle cx="527" cy="350" r="4" class="dot d3"/>
-      <circle cx="552" cy="365" r="4" class="dot d4"/>
-    </g>
-    <g fill="#F18AAA">
-      <circle cx="591" cy="350" r="4" class="dot d2"/>
-      <circle cx="613" cy="365" r="4" class="dot d3"/>
-      <circle cx="640" cy="348" r="4" class="dot d4"/>
-      <circle cx="650" cy="370" r="4" class="dot"/>
-      <circle cx="627" cy="332" r="4" class="dot d2"/>
-      <circle cx="643" cy="282" r="4" class="dot d3"/>
-    </g>
-    <circle cx="522" cy="424" r="5" fill="#B62250"/>
-    <text x="534" y="428" class="body">Class 0 / Class 1</text>
-    <text x="506" y="454" class="body">Predict unseen data</text>
+
+    <text x="518" y="279" font-size="12" font-weight="700" fill="#351321">max_depth</text>
+    <path d="M519 291H649" stroke="#F1C6D5" stroke-width="5" stroke-linecap="round"/>
+    <path d="M519 291H595" stroke="url(#rose)" stroke-width="5" stroke-linecap="round" class="bar"/>
+    <circle cx="595" cy="291" r="6" fill="#B62250" class="pulse"/>
+
+    <text x="518" y="316" font-size="12" font-weight="700" fill="#351321">n_estimators</text>
+    <path d="M519 328H649" stroke="#F1C6D5" stroke-width="5" stroke-linecap="round"/>
+    <path d="M519 328H620" stroke="url(#rose)" stroke-width="5" stroke-linecap="round" class="bar b2"/>
+    <circle cx="620" cy="328" r="6" fill="#B62250" class="pulse"/>
+
+    <text x="518" y="353" font-size="12" font-weight="700" fill="#351321">learning_rate</text>
+    <path d="M519 365H649" stroke="#F1C6D5" stroke-width="5" stroke-linecap="round"/>
+    <path d="M519 365H575" stroke="url(#rose)" stroke-width="5" stroke-linecap="round" class="bar b3"/>
+    <circle cx="575" cy="365" r="6" fill="#B62250" class="pulse"/>
+    <text x="506" y="427" class="body">Optimize settings</text>
+    <text x="506" y="447" class="body">Cross-validation</text>
   </g>
 
   <path d="M682 326H699" class="flow"/>
-  <circle cx="691" cy="326" r="9" fill="#D8527D" class="arrow"/>
+  <circle cx="691" cy="326" r="9" fill="#D8527D" class="pulse"/>
   <path d="M688 322L693 326L688 330" fill="none" stroke="#fff" stroke-width="1.5"/>
 
-  <!-- Evaluation card -->
+  <!-- Stage 4 -->
   <g class="card c4">
     <rect x="704" y="180" width="180" height="294" rx="13" fill="#FFF8FA" stroke="#F5D9E3"/>
     <circle cx="727" cy="207" r="14" fill="#F8D8E3"/>
     <g transform="translate(727 207)" stroke="#9B123C" fill="none" stroke-width="1.8">
-      <path d="M-8 7V-2H-3V7M-1 7V-8H4V7M6 7V1H10V7M-10 9H12"/>
+      <path d="M-9 8L-3 1L1 4L9 -7M4 -7H9V-2"/>
     </g>
-    <text x="749" y="203" class="label">04 / SCORE</text>
-    <text x="720" y="239" class="head">Model Evaluation</text>
-
-    <g font-size="11" fill="#815365">
-      <text x="721" y="271">Accuracy</text><text x="866" y="271" text-anchor="end" fill="#9B123C">92%</text>
-      <rect x="721" y="278" width="145" height="7" rx="3" fill="#F5D9E3"/>
-      <rect x="721" y="278" width="133" height="7" rx="3" fill="url(#rose)" class="bar"/>
-      <text x="721" y="308">Precision</text><text x="866" y="308" text-anchor="end" fill="#9B123C">89%</text>
-      <rect x="721" y="315" width="145" height="7" rx="3" fill="#F5D9E3"/>
-      <rect x="721" y="315" width="129" height="7" rx="3" fill="url(#rose)" class="bar b2"/>
-      <text x="721" y="345">Recall</text><text x="866" y="345" text-anchor="end" fill="#9B123C">87%</text>
-      <rect x="721" y="352" width="145" height="7" rx="3" fill="#F5D9E3"/>
-      <rect x="721" y="352" width="126" height="7" rx="3" fill="url(#rose)" class="bar b3"/>
-      <text x="721" y="382">F1-Score</text><text x="866" y="382" text-anchor="end" fill="#9B123C">88%</text>
-      <rect x="721" y="389" width="145" height="7" rx="3" fill="#F5D9E3"/>
-      <rect x="721" y="389" width="128" height="7" rx="3" fill="url(#rose)" class="bar b4"/>
-    </g>
-    <text x="721" y="432" class="body">Compare test results</text>
-    <text x="721" y="451" class="body">Select best model</text>
+    <text x="749" y="203" class="label">04 / RESULTS</text>
+    <text x="720" y="239" class="head">Best Performance</text>
+    <rect x="720" y="257" width="148" height="104" rx="9" fill="#FCECF1"/>
+    <text x="733" y="278" class="body">Before tuning</text>
+    <rect x="733" y="286" width="122" height="9" rx="4" fill="#F1D0DC"/>
+    <rect x="733" y="286" width="89" height="9" rx="4" fill="#E6A0B8" class="bar b2"/>
+    <text x="733" y="316" class="body">After tuning</text>
+    <rect x="733" y="324" width="122" height="9" rx="4" fill="#F1D0DC"/>
+    <rect x="733" y="324" width="109" height="9" rx="4" fill="url(#rose)" class="bar b3"/>
+    <text x="733" y="350" font-size="10" fill="#9B123C">Illustrative scores</text>
+    <text x="721" y="392" class="body">Compare validation</text>
+    <text x="721" y="410" class="body">scores and select</text>
+    <text x="721" y="428" class="body">best settings</text>
+    <rect x="721" y="440" width="113" height="22" rx="11" fill="#F8DDE7"/>
+    <text x="777" y="455" text-anchor="middle" font-size="10" font-weight="700" fill="#9B123C">BEST MODEL</text>
   </g>
 
-  <!-- Feature importance panel -->
+  <!-- Insights panel -->
   <rect x="916" y="133" width="306" height="360" rx="18" class="panel card"/>
-  <text x="937" y="161" class="label">MODEL INSIGHTS</text>
-  <text x="937" y="193" class="title" style="font-size:21px">Feature Importance</text>
+  <text x="937" y="161" class="label">TUNING INSIGHTS</text>
+  <text x="937" y="193" class="title" style="font-size:21px">Performance Gain</text>
+  <text x="937" y="216" class="body">Illustrative validation scores</text>
 
+  <text x="937" y="251" class="body">Baseline</text>
+  <rect x="1005" y="239" width="174" height="15" rx="7" fill="#F8E4EB"/>
+  <rect x="1005" y="239" width="125" height="15" rx="7" fill="#E6A0B8" class="bar"/>
+  <text x="1198" y="251" text-anchor="end" font-size="11" font-weight="700" fill="#815365">72%</text>
+
+  <text x="937" y="289" class="body">Tuned</text>
+  <rect x="1005" y="277" width="174" height="15" rx="7" fill="#F8E4EB"/>
+  <rect x="1005" y="277" width="151" height="15" rx="7" fill="url(#rose)" class="bar b2"/>
+  <text x="1198" y="289" text-anchor="end" font-size="11" font-weight="700" fill="#9B123C">87%</text>
+
+  <path d="M937 315H1201" stroke="#F0D1DC"/>
+  <text x="937" y="341" class="label">KEY PARAMETERS</text>
   <g font-size="12" fill="#815365">
-    <text x="937" y="231">Feature A</text><text x="937" y="267">Feature B</text>
-    <text x="937" y="303">Feature C</text><text x="937" y="339">Feature D</text>
-    <text x="937" y="375">Feature E</text>
+    <text x="939" y="366">max_depth</text>
+    <text x="939" y="390">n_estimators</text>
+    <text x="939" y="414">learning_rate</text>
   </g>
-  <g>
-    <rect x="1008" y="219" width="151" height="13" rx="6" fill="#F8E4EB"/>
-    <rect x="1008" y="219" width="130" height="13" rx="6" fill="url(#rose)" class="bar"/>
-    <rect x="1008" y="255" width="151" height="13" rx="6" fill="#F8E4EB"/>
-    <rect x="1008" y="255" width="97" height="13" rx="6" fill="#D8527D" class="bar b2"/>
-    <rect x="1008" y="291" width="151" height="13" rx="6" fill="#F8E4EB"/>
-    <rect x="1008" y="291" width="74" height="13" rx="6" fill="#E36F93" class="bar b3"/>
-    <rect x="1008" y="327" width="151" height="13" rx="6" fill="#F8E4EB"/>
-    <rect x="1008" y="327" width="54" height="13" rx="6" fill="#EF9BB4" class="bar b4"/>
-    <rect x="1008" y="363" width="151" height="13" rx="6" fill="#F8E4EB"/>
-    <rect x="1008" y="363" width="31" height="13" rx="6" fill="#F3B7C9" class="bar"/>
+  <g fill="#F8D8E3">
+    <rect x="1080" y="356" width="112" height="13" rx="6"/>
+    <rect x="1080" y="380" width="112" height="13" rx="6"/>
+    <rect x="1080" y="404" width="112" height="13" rx="6"/>
   </g>
-  <g font-size="11" fill="#815365" text-anchor="end">
-    <text x="1197" y="230">0.32</text><text x="1197" y="266">0.24</text>
-    <text x="1197" y="302">0.18</text><text x="1197" y="338">0.14</text>
-    <text x="1197" y="374">0.08</text>
+  <g fill="url(#rose)">
+    <rect x="1080" y="356" width="79" height="13" rx="6" class="bar"/>
+    <rect x="1080" y="380" width="93" height="13" rx="6" class="bar b2"/>
+    <rect x="1080" y="404" width="61" height="13" rx="6" class="bar b3"/>
   </g>
 
-  <rect x="934" y="401" width="270" height="73" rx="12" fill="url(#rose)"/>
-  <text x="951" y="424" font-size="11" font-weight="700" letter-spacing="1.5" fill="#fff">KEY TAKEAWAY</text>
-  <text x="951" y="445" font-size="13" font-weight="700" fill="#fff">Accurate predictions</text>
-  <text x="951" y="462" font-size="12" fill="#fff">with interpretable features.</text>
+  <rect x="934" y="435" width="270" height="39" rx="10" fill="url(#rose)"/>
+  <text x="1069" y="459" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Tune • Validate • Improve</text>
 
   <!-- Footer -->
   <path d="M48 511H1222" stroke="#E9B8C9"/>
-  <text x="48" y="531" class="label">TREE-BASED CLASSIFICATION</text>
-  <text x="635" y="531" text-anchor="middle" class="body">PREPARE → TRAIN → PREDICT → EVALUATE</text>
-  <text x="1222" y="531" text-anchor="end" class="label">PART E / 05</text>
+  <text x="48" y="531" class="label">HYPERPARAMETER TUNING</text>
+  <text x="635" y="531" text-anchor="middle" class="body">MODEL → SEARCH → TUNE → EVALUATE</text>
+  <text x="1222" y="531" text-anchor="end" class="label">PART F / 06</text>
 </svg>
