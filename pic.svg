@@ -22,11 +22,13 @@
     .float2{animation:float 5s ease-in-out -2s infinite}
     .pulse{animation:pulse 2.4s ease-in-out infinite}
     .flow{stroke-dasharray:5 7;animation:flow 5s linear infinite}
-    .bar{animation:bar 3s ease-in-out infinite;transform-box:fill-box;transform-origin:left center}
+    .bar{transform-box:fill-box;transform-origin:left center;animation:bar 3s ease-in-out infinite}
+    .minority{animation:appear 2.5s ease-in-out infinite alternate}
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
     @keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
     @keyframes flow{to{stroke-dashoffset:-120}}
     @keyframes bar{0%,100%{transform:scaleX(.94)}50%{transform:scaleX(1)}}
+    @keyframes appear{from{opacity:.5}to{opacity:1}}
     @media(prefers-reduced-motion:reduce){*{animation:none!important}}
   </style>
 </defs>
@@ -44,193 +46,197 @@
 <g transform="translate(65 27)">
   <rect width="42" height="42" rx="12" fill="#9B123C"/>
   <g transform="translate(10 10)" fill="none" stroke="#FFFFFF" stroke-width="1.7">
-    <rect width="22" height="22" rx="3"/>
-    <path d="M0 7H22M7 7V22M15 7V22"/>
+    <circle cx="11" cy="11" r="10"/>
+    <path d="M11 1V21M1 11H21"/>
+    <circle cx="11" cy="11" r="4"/>
   </g>
-  <text x="56" y="12" font-size="10" font-weight="bold" letter-spacing="2.4" fill="#B93962">PART C / MACHINE LEARNING</text>
-  <text x="56" y="40" font-size="26" font-weight="bold" fill="#351321">Baseline Classification Model</text>
+  <text x="56" y="12" font-size="10" font-weight="bold" letter-spacing="2.4" fill="#B93962">PART D / DATA BALANCING</text>
+  <text x="56" y="40" font-size="26" font-weight="bold" fill="#351321">Handling Imbalanced Data</text>
 </g>
-<text x="1205" y="45" text-anchor="end" font-size="10" font-weight="bold" letter-spacing="2" fill="#B93962">MODEL INTELLIGENCE / 03</text>
-<text x="1205" y="63" text-anchor="end" font-size="10" fill="#A8798A">TRAIN • PREDICT • EVALUATE</text>
+<text x="1205" y="45" text-anchor="end" font-size="10" font-weight="bold" letter-spacing="2" fill="#B93962">CLASS BALANCING / 04</text>
+<text x="1205" y="63" text-anchor="end" font-size="10" fill="#A8798A">IDENTIFY • BALANCE • VALIDATE</text>
 
-<text x="65" y="107" font-size="11" font-weight="bold" letter-spacing="2" fill="#B93962">FROM TRAINING DATA TO CLASSIFICATION RESULTS</text>
-<text x="65" y="129" font-size="12" fill="#815365">Build a baseline model, predict classes and measure performance.</text>
+<text x="65" y="107" font-size="11" font-weight="bold" letter-spacing="2" fill="#B93962">FROM SKEWED CLASSES TO BETTER REPRESENTATION</text>
+<text x="65" y="129" font-size="12" fill="#815365">Identify minority classes and apply suitable resampling techniques.</text>
 
-<!-- Main model workflow panel -->
+<!-- Main workflow panel -->
 <rect x="65" y="149" width="820" height="315" rx="19" fill="#FFFFFF" stroke="#F0C9D6" filter="url(#shadow)"/>
-<text x="88" y="177" font-size="10" font-weight="bold" letter-spacing="1.7" fill="#B93962">CLASSIFICATION PIPELINE</text>
+<text x="88" y="177" font-size="10" font-weight="bold" letter-spacing="1.7" fill="#B93962">IMBALANCE HANDLING WORKFLOW</text>
 <text x="861" y="177" text-anchor="end" font-size="10" fill="#A8798A">4 STAGES</text>
 <line x1="88" y1="190" x2="862" y2="190" stroke="#F1DCE4"/>
 
-<!-- Stage 1: training data -->
+<!-- Stage 1: imbalance -->
 <g>
   <rect x="88" y="211" width="170" height="205" rx="13" fill="#FFF9FB" stroke="#EFCAD7"/>
   <rect x="102" y="225" width="33" height="33" rx="9" fill="#F9E1E9"/>
-  <g transform="translate(109 232)" fill="none" stroke="#9B123C" stroke-width="1.6">
-    <rect width="19" height="19" rx="2"/>
-    <path d="M0 6H19M6 6V19M13 6V19"/>
+  <g transform="translate(109 232)" fill="none" stroke="#9B123C" stroke-width="1.5">
+    <path d="M1 20V1M1 20H22"/>
+    <rect x="5" y="4" width="5" height="16" rx="1" fill="#9B123C"/>
+    <rect x="14" y="13" width="5" height="7" rx="1" fill="#F18AAA" stroke="none"/>
   </g>
-  <text x="145" y="237" font-size="9" font-weight="bold" letter-spacing=".8" fill="#B93962">01 / INPUT</text>
-  <text x="145" y="252" font-size="13" font-weight="bold" fill="#351321">Dataset Split</text>
+  <text x="145" y="237" font-size="9" font-weight="bold" letter-spacing=".7" fill="#B93962">01 / DETECT</text>
+  <text x="145" y="252" font-size="13" font-weight="bold" fill="#351321">Class Imbalance</text>
 
   <g transform="translate(102 275)">
     <rect width="142" height="73" rx="7" fill="#FFFFFF" stroke="#EED5DF"/>
-    <text x="8" y="15" font-size="9" font-weight="bold" fill="#9B123C">TRAIN / TEST</text>
-    <rect x="8" y="24" width="126" height="15" rx="4" fill="#F7E5EB"/>
-    <rect x="8" y="24" width="100" height="15" rx="4" fill="url(#rose)"/>
-    <rect x="108" y="24" width="26" height="15" rx="4" fill="#F18AAA"/>
-    <text x="8" y="54" font-size="9" fill="#815365">Training</text>
-    <text x="134" y="54" text-anchor="end" font-size="9" fill="#815365">Testing</text>
-    <circle cx="128" cy="13" r="3" fill="#D8527D" class="pulse"/>
+    <text x="8" y="14" font-size="9" font-weight="bold" fill="#815365">CLASS DISTRIBUTION</text>
+    <rect x="8" y="23" width="126" height="13" rx="4" fill="#F7E5EB"/>
+    <rect x="8" y="23" width="105" height="13" rx="4" fill="#B93962"/>
+    <rect x="113" y="23" width="21" height="13" rx="4" fill="#F18AAA"/>
+    <circle cx="13" cy="49" r="4" fill="#B93962"/>
+    <text x="22" y="52" font-size="9" fill="#573042">Majority class</text>
+    <circle cx="13" cy="64" r="4" fill="#F18AAA"/>
+    <text x="22" y="67" font-size="9" fill="#573042">Minority class</text>
   </g>
-  <text x="102" y="371" font-size="10" font-weight="bold" fill="#351321">Prepare features</text>
-  <text x="102" y="390" font-size="10" fill="#815365">Inputs &amp; target labels</text>
+  <text x="102" y="371" font-size="10" font-weight="bold" fill="#351321">Inspect class counts</text>
+  <text x="102" y="390" font-size="10" fill="#815365">Find skewed distribution</text>
   <circle cx="111" cy="403" r="3" fill="#D8527D" class="pulse"/>
-  <text x="120" y="407" font-size="9" fill="#B93962">Train / test split</text>
+  <text x="120" y="407" font-size="9" fill="#B93962">Identify minority</text>
 </g>
 
 <!-- Connector -->
 <path d="M258 315H280" stroke="#D8527D" stroke-width="2" class="flow"/>
 <path d="M274 310L280 315L274 320" fill="none" stroke="#D8527D" stroke-width="1.5"/>
 
-<!-- Stage 2: model -->
+<!-- Stage 2: resampling -->
 <g class="float">
   <rect x="282" y="211" width="170" height="205" rx="13" fill="#FFF9FB" stroke="#EFCAD7"/>
   <rect x="296" y="225" width="33" height="33" rx="9" fill="#F9E1E9"/>
-  <g transform="translate(301 231)" fill="none" stroke="#9B123C" stroke-width="1.5">
-    <circle cx="12" cy="4" r="3.5"/>
-    <circle cx="4" cy="19" r="3.5"/>
-    <circle cx="20" cy="19" r="3.5"/>
-    <path d="M10 7L5 15M14 7L19 15M8 19H16"/>
+  <g transform="translate(303 232)" fill="none" stroke="#9B123C" stroke-width="1.6" stroke-linecap="round">
+    <path d="M11 2V20M2 11H20"/>
+    <circle cx="11" cy="11" r="9"/>
   </g>
-  <text x="339" y="237" font-size="9" font-weight="bold" letter-spacing=".8" fill="#B93962">02 / TRAIN</text>
-  <text x="339" y="252" font-size="13" font-weight="bold" fill="#351321">Baseline Model</text>
+  <text x="339" y="237" font-size="9" font-weight="bold" letter-spacing=".7" fill="#B93962">02 / RESAMPLE</text>
+  <text x="339" y="252" font-size="13" font-weight="bold" fill="#351321">SMOTE / Sampling</text>
 
   <g transform="translate(296 275)">
     <rect width="142" height="73" rx="7" fill="#FFFFFF" stroke="#EED5DF"/>
-    <g stroke="#D8527D" stroke-width="1.5" fill="none">
-      <path d="M71 20L42 37M71 20L100 37M42 37L26 55M42 37L57 55M100 37L85 55M100 37L116 55"/>
+    <text x="8" y="14" font-size="9" font-weight="bold" fill="#815365">SYNTHETIC SAMPLES</text>
+    <g stroke="#E8B5C7" stroke-width="1.2" stroke-dasharray="3 3">
+      <path d="M24 34L56 48L91 31L119 51"/>
+      <path d="M24 34L39 62M56 48L75 22M91 31L105 64"/>
     </g>
-    <g fill="#F9E1E9" stroke="#B93962" stroke-width="1.2">
-      <circle cx="71" cy="17" r="9"/>
-      <circle cx="42" cy="37" r="7"/>
-      <circle cx="100" cy="37" r="7"/>
-      <circle cx="26" cy="55" r="5"/>
-      <circle cx="57" cy="55" r="5"/>
-      <circle cx="85" cy="55" r="5"/>
-      <circle cx="116" cy="55" r="5"/>
+    <g fill="#B93962">
+      <circle cx="24" cy="34" r="5"/>
+      <circle cx="56" cy="48" r="5"/>
+      <circle cx="91" cy="31" r="5"/>
+      <circle cx="119" cy="51" r="5"/>
     </g>
-    <circle cx="71" cy="17" r="3" fill="#9B123C"/>
-    <circle cx="42" cy="37" r="2.5" fill="#D8527D" class="pulse"/>
-    <circle cx="100" cy="37" r="2.5" fill="#D8527D" class="pulse"/>
+    <g fill="#F18AAA" stroke="#B93962" stroke-width="1" class="minority">
+      <circle cx="39" cy="62" r="4"/>
+      <circle cx="75" cy="22" r="4"/>
+      <circle cx="105" cy="64" r="4"/>
+      <circle cx="73" cy="43" r="4"/>
+    </g>
   </g>
-  <text x="296" y="371" font-size="10" font-weight="bold" fill="#351321">Learn class patterns</text>
-  <text x="296" y="390" font-size="10" fill="#815365">Fit a simple classifier</text>
+  <text x="296" y="371" font-size="10" font-weight="bold" fill="#351321">Increase minority samples</text>
+  <text x="296" y="390" font-size="10" fill="#815365">SMOTE or random sampling</text>
   <circle cx="305" cy="403" r="3" fill="#D8527D" class="pulse"/>
-  <text x="314" y="407" font-size="9" fill="#B93962">Model training</text>
+  <text x="314" y="407" font-size="9" fill="#B93962">Resampling strategy</text>
 </g>
 
 <!-- Connector -->
 <path d="M452 315H474" stroke="#D8527D" stroke-width="2" class="flow"/>
 <path d="M468 310L474 315L468 320" fill="none" stroke="#D8527D" stroke-width="1.5"/>
 
-<!-- Stage 3: prediction -->
+<!-- Stage 3: balanced data -->
 <g>
   <rect x="476" y="211" width="170" height="205" rx="13" fill="#FFF9FB" stroke="#EFCAD7"/>
   <rect x="490" y="225" width="33" height="33" rx="9" fill="#F9E1E9"/>
-  <g transform="translate(497 232)" fill="none" stroke="#9B123C" stroke-width="1.6" stroke-linecap="round">
-    <circle cx="11" cy="11" r="9"/>
-    <path d="M11 6V11L15 14"/>
+  <g transform="translate(497 232)" fill="none" stroke="#9B123C" stroke-width="1.5">
+    <path d="M1 20V1M1 20H22"/>
+    <rect x="5" y="10" width="5" height="10" rx="1" fill="#B93962"/>
+    <rect x="14" y="10" width="5" height="10" rx="1" fill="#F18AAA" stroke="none"/>
   </g>
-  <text x="533" y="237" font-size="9" font-weight="bold" letter-spacing=".8" fill="#B93962">03 / PREDICT</text>
-  <text x="533" y="252" font-size="13" font-weight="bold" fill="#351321">Class Prediction</text>
+  <text x="533" y="237" font-size="9" font-weight="bold" letter-spacing=".7" fill="#B93962">03 / BALANCE</text>
+  <text x="533" y="252" font-size="13" font-weight="bold" fill="#351321">Class Distribution</text>
 
   <g transform="translate(490 275)">
     <rect width="142" height="73" rx="7" fill="#FFFFFF" stroke="#EED5DF"/>
-    <text x="8" y="15" font-size="9" font-weight="bold" fill="#815365">PREDICTED CLASS</text>
-    <rect x="8" y="23" width="126" height="18" rx="5" fill="#F9E1E9"/>
-    <circle cx="18" cy="32" r="4" fill="#9B123C"/>
-    <text x="28" y="35" font-size="9" font-weight="bold" fill="#9B123C">Class A</text>
-    <rect x="8" y="47" width="126" height="18" rx="5" fill="#FFF0F4"/>
-    <circle cx="18" cy="56" r="4" fill="#F18AAA"/>
-    <text x="28" y="59" font-size="9" fill="#815365">Class B</text>
-    <path d="M119 30L123 34L130 26" fill="none" stroke="#9B123C" stroke-width="1.5" class="pulse"/>
+    <text x="8" y="14" font-size="9" font-weight="bold" fill="#815365">BEFORE → AFTER</text>
+    <text x="8" y="31" font-size="8" fill="#815365">Before</text>
+    <rect x="49" y="23" width="83" height="9" rx="3" fill="#F7E5EB"/>
+    <rect x="49" y="23" width="67" height="9" rx="3" fill="#B93962"/>
+    <text x="8" y="47" font-size="8" fill="#815365">After</text>
+    <rect x="49" y="39" width="83" height="9" rx="3" fill="#F7E5EB"/>
+    <rect x="49" y="39" width="41" height="9" rx="3" fill="#B93962"/>
+    <rect x="90" y="39" width="42" height="9" rx="3" fill="#F18AAA"/>
+    <g class="pulse">
+      <circle cx="53" cy="62" r="3" fill="#B93962"/>
+      <circle cx="65" cy="62" r="3" fill="#F18AAA"/>
+      <circle cx="77" cy="62" r="3" fill="#B93962"/>
+      <circle cx="89" cy="62" r="3" fill="#F18AAA"/>
+    </g>
+    <text x="99" y="65" font-size="8" fill="#815365">Balanced</text>
   </g>
-  <text x="490" y="371" font-size="10" font-weight="bold" fill="#351321">Classify new samples</text>
-  <text x="490" y="390" font-size="10" fill="#815365">Generate predictions</text>
+  <text x="490" y="371" font-size="10" font-weight="bold" fill="#351321">Improve representation</text>
+  <text x="490" y="390" font-size="10" fill="#815365">Check class proportions</text>
   <circle cx="499" cy="403" r="3" fill="#D8527D" class="pulse"/>
-  <text x="508" y="407" font-size="9" fill="#B93962">Predicted labels</text>
+  <text x="508" y="407" font-size="9" fill="#B93962">Balanced training data</text>
 </g>
 
 <!-- Connector -->
 <path d="M646 315H668" stroke="#D8527D" stroke-width="2" class="flow"/>
 <path d="M662 310L668 315L662 320" fill="none" stroke="#D8527D" stroke-width="1.5"/>
 
-<!-- Stage 4: evaluation -->
+<!-- Stage 4: validate -->
 <g class="float2">
   <rect x="670" y="211" width="190" height="205" rx="13" fill="#FFF9FB" stroke="#EFCAD7"/>
   <rect x="684" y="225" width="33" height="33" rx="9" fill="#F9E1E9"/>
   <g transform="translate(691 232)" fill="none" stroke="#9B123C" stroke-width="1.6">
-    <rect width="20" height="20" rx="2"/>
-    <path d="M0 10H20M10 0V20"/>
-    <rect x="3" y="3" width="4" height="4" fill="#D8527D" stroke="none"/>
-    <rect x="13" y="13" width="4" height="4" fill="#D8527D" stroke="none"/>
+    <path d="M2 10L8 16L20 3"/>
+    <circle cx="11" cy="11" r="10"/>
   </g>
-  <text x="727" y="237" font-size="9" font-weight="bold" letter-spacing=".7" fill="#B93962">04 / EVALUATE</text>
-  <text x="727" y="252" font-size="13" font-weight="bold" fill="#351321">Model Metrics</text>
+  <text x="727" y="237" font-size="9" font-weight="bold" letter-spacing=".7" fill="#B93962">04 / VALIDATE</text>
+  <text x="727" y="252" font-size="13" font-weight="bold" fill="#351321">Model Evaluation</text>
 
   <rect x="684" y="275" width="162" height="73" rx="7" fill="#FFFFFF" stroke="#EED5DF"/>
-  <text x="694" y="290" font-size="9" font-weight="bold" fill="#815365">CONFUSION MATRIX</text>
-  <g transform="translate(713 298)">
-    <rect width="37" height="18" rx="3" fill="#B93962"/>
-    <rect x="41" width="37" height="18" rx="3" fill="#F9B3C9"/>
-    <rect y="22" width="37" height="18" rx="3" fill="#F18AAA"/>
-    <rect x="41" y="22" width="37" height="18" rx="3" fill="#D8527D"/>
-    <g fill="#FFFFFF" font-size="9" font-weight="bold" text-anchor="middle">
-      <text x="18" y="12">TP</text>
-      <text x="59" y="12" fill="#7C2343">FP</text>
-      <text x="18" y="34" fill="#7C2343">FN</text>
-      <text x="59" y="34">TN</text>
-    </g>
+  <text x="694" y="290" font-size="9" font-weight="bold" fill="#815365">PERFORMANCE CHECK</text>
+  <g transform="translate(694 301)">
+    <rect width="142" height="8" rx="4" fill="#F7E5EB"/>
+    <rect width="100" height="8" rx="4" fill="url(#rose)" class="bar"/>
+    <rect y="16" width="142" height="8" rx="4" fill="#F7E5EB"/>
+    <rect y="16" width="112" height="8" rx="4" fill="#F18AAA" class="bar"/>
+    <rect y="32" width="142" height="8" rx="4" fill="#F7E5EB"/>
+    <rect y="32" width="90" height="8" rx="4" fill="#B93962" class="bar"/>
   </g>
-  <text x="684" y="371" font-size="10" font-weight="bold" fill="#351321">Measure performance</text>
-  <text x="684" y="390" font-size="10" fill="#815365">Accuracy • Precision • Recall</text>
+  <text x="684" y="371" font-size="10" font-weight="bold" fill="#351321">Test on unseen data</text>
+  <text x="684" y="390" font-size="10" fill="#815365">Recall • F1 • PR-AUC</text>
   <circle cx="693" cy="403" r="3" fill="#D8527D" class="pulse"/>
-  <text x="702" y="407" font-size="9" fill="#B93962">Evaluation results</text>
+  <text x="702" y="407" font-size="9" fill="#B93962">Compare results</text>
 </g>
 
-<!-- Right model summary -->
+<!-- Right insight panel -->
 <rect x="905" y="149" width="300" height="315" rx="19" fill="#FFFFFF" stroke="#F0C9D6" filter="url(#shadow)"/>
-<text x="929" y="179" font-size="10" font-weight="bold" letter-spacing="1.5" fill="#B93962">MODEL EVALUATION</text>
-<text x="929" y="204" font-size="18" font-weight="bold" fill="#351321">Baseline performance</text>
+<text x="929" y="179" font-size="10" font-weight="bold" letter-spacing="1.5" fill="#B93962">CLASS DISTRIBUTION</text>
+<text x="929" y="204" font-size="18" font-weight="bold" fill="#351321">Before &amp; after</text>
 <line x1="929" y1="217" x2="1181" y2="217" stroke="#F1DCE4"/>
 
-<!-- Metric rows -->
-<g>
-  <text x="929" y="244" font-size="11" fill="#573042">Accuracy</text>
-  <text x="1181" y="244" text-anchor="end" font-size="11" font-weight="bold" fill="#9B123C">Metric</text>
-  <rect x="929" y="253" width="252" height="7" rx="3.5" fill="#F7E5EB"/>
-  <rect x="929" y="253" width="176" height="7" rx="3.5" fill="url(#rose)" class="bar"/>
+<!-- Before chart -->
+<text x="929" y="241" font-size="11" font-weight="bold" fill="#573042">Before balancing</text>
+<rect x="929" y="251" width="252" height="13" rx="5" fill="#F7E5EB"/>
+<rect x="929" y="251" width="220" height="13" rx="5" fill="#B93962"/>
+<rect x="1149" y="251" width="32" height="13" rx="5" fill="#F18AAA"/>
+<circle cx="935" cy="280" r="4" fill="#B93962"/>
+<text x="945" y="284" font-size="10" fill="#815365">Majority</text>
+<circle cx="1034" cy="280" r="4" fill="#F18AAA"/>
+<text x="1044" y="284" font-size="10" fill="#815365">Minority</text>
 
-  <text x="929" y="285" font-size="11" fill="#573042">Precision</text>
-  <text x="1181" y="285" text-anchor="end" font-size="11" font-weight="bold" fill="#9B123C">Metric</text>
-  <rect x="929" y="294" width="252" height="7" rx="3.5" fill="#F7E5EB"/>
-  <rect x="929" y="294" width="145" height="7" rx="3.5" fill="#D8527D" class="bar"/>
+<!-- After chart -->
+<text x="929" y="316" font-size="11" font-weight="bold" fill="#573042">After balancing</text>
+<rect x="929" y="326" width="252" height="13" rx="5" fill="#F7E5EB"/>
+<rect x="929" y="326" width="126" height="13" rx="5" fill="#B93962"/>
+<rect x="1055" y="326" width="126" height="13" rx="5" fill="#F18AAA" class="pulse"/>
+<text x="929" y="359" font-size="10" fill="#815365">More representative training classes</text>
 
-  <text x="929" y="326" font-size="11" fill="#573042">Recall</text>
-  <text x="1181" y="326" text-anchor="end" font-size="11" font-weight="bold" fill="#9B123C">Metric</text>
-  <rect x="929" y="335" width="252" height="7" rx="3.5" fill="#F7E5EB"/>
-  <rect x="929" y="335" width="160" height="7" rx="3.5" fill="#F18AAA" class="bar"/>
-</g>
-
-<rect x="929" y="366" width="252" height="77" rx="10" fill="url(#rose)"/>
-<text x="946" y="388" font-size="10" font-weight="bold" letter-spacing="1" fill="#FFE8EF">BASELINE MODEL</text>
-<text x="946" y="409" font-size="14" font-weight="bold" fill="#FFFFFF">Performance benchmark</text>
-<text x="946" y="428" font-size="10" fill="#FFE8EF">Compare future model improvements</text>
+<rect x="929" y="376" width="252" height="67" rx="10" fill="url(#rose)"/>
+<text x="946" y="397" font-size="10" font-weight="bold" letter-spacing="1" fill="#FFE8EF">IMPORTANT</text>
+<text x="946" y="415" font-size="11" font-weight="bold" fill="#FFFFFF">Resample training data only</text>
+<text x="946" y="431" font-size="9" fill="#FFE8EF">Keep validation and test sets untouched</text>
 
 <!-- Footer -->
 <line x1="65" y1="489" x2="1205" y2="489" stroke="#E9B7C8" opacity=".8"/>
-<text x="65" y="514" font-size="10" font-weight="bold" letter-spacing="1.8" fill="#9B123C">BASELINE CLASSIFICATION</text>
-<text x="635" y="514" text-anchor="middle" font-size="10" fill="#A8798A">SPLIT → TRAIN → PREDICT → EVALUATE</text>
-<text x="1205" y="514" text-anchor="end" font-size="10" fill="#9B123C">PART C / 03</text>
+<text x="65" y="514" font-size="10" font-weight="bold" letter-spacing="1.8" fill="#9B123C">IMBALANCE HANDLING</text>
+<text x="635" y="514" text-anchor="middle" font-size="10" fill="#A8798A">DETECT → RESAMPLE → BALANCE → VALIDATE</text>
+<text x="1205" y="514" text-anchor="end" font-size="10" fill="#9B123C">PART D / 04</text>
 </svg>
