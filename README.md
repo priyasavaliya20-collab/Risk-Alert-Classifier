@@ -31,14 +31,10 @@ Your manager asks you to build a baseline classifier, evaluate it with confusion
 | 📓 `Risk_Alert_Classifier.ipynb` | Main notebook — the complete, annotated classification, imbalanced-learning, tree, tuning and ROC-analysis pipeline |
 | 📊 `Risk_Alert_Classifier_Dataset_4600 - Risk_Alert_Classifier_Dataset_4600.csv.csv` | Raw customer risk dataset (4,600 records) |
 | 📘 `README.md` | Project documentation and workflow guide |
-| 📂 `Visuals` | Folder of the output visuals/graphs |
 | 📄 `Part A :- Conceptual_Foundation.pdf` | Project documentation of part :- A (Theory)
 | 📋 `Part H Final_Analysis_&_Reporting (Report).pdf` | Report documentation of part :- H (Report) |
 | 🖥️ `app.py` | Main Streamlit application for the live deployment |
 | ⚙️ `model.py.py` | Model file containing the trained prediction logic |
-| 📦 `requirements.txt` | Required Python libraries and dependencies for the project |
-
-
 
 ---
 
@@ -99,11 +95,8 @@ Your manager asks you to build a baseline classifier, evaluate it with confusion
 ## 🧠 Part B : Dataset Understanding & Preparation
 
 
-<img width="1270" height="541" alt="pic" src="https://github.com/user-attachments/assets/c3d4a543-e547-45b3-9fce-a2240a17a536" />
 
-
-
-
+<img width="1270" height="541" alt="pic" src="https://github.com/user-attachments/assets/588e8d04-73ee-4160-b9bd-70a787d68416" />
 
 
 ---
@@ -166,6 +159,8 @@ X_test[numeric_columns] = imputer.transform(X_test[numeric_columns])
 
 ## 📊 Part C : Baseline Classification Model
 
+<img width="1270" height="541" alt="pic" src="https://github.com/user-attachments/assets/ac6c75b3-46f7-4f10-80f4-71a7a975aaff" />
+
 ---
 
 ### 🔟 Implement Logistic Regression as a baseline model
@@ -221,6 +216,10 @@ print("Type-II Error (False Negative):", FN)
 
 ## ⚖️ Part D : Handling Imbalanced Data
 
+
+<img width="1270" height="541" alt="pic" src="https://github.com/user-attachments/assets/971cde78-3703-4c60-9b41-3182fa854069" />
+
+
 ---
 
 ### 1️⃣3️⃣ Demonstrate the impact of class imbalance on model performance
@@ -267,6 +266,9 @@ adasyn = ADASYN(random_state=42)
 
 
 ## 🌲 Part E : Tree-Based Classification Models
+
+
+<img width="1270" height="541" alt="pic" src="https://github.com/user-attachments/assets/75dcaed2-7afe-464c-868e-775fb27ce6c1" />
 
 ---
 
@@ -323,6 +325,9 @@ rf_model.fit(X_train_scaled, y_train)
 
 ## 🔧 Part F : Hyperparameter Tuning
 
+<img width="1270" height="541" alt="pic" src="https://github.com/user-attachments/assets/596c5238-a10e-42eb-94a7-67c1f8b2c333" />
+
+
 ---
 
 ### 2️⃣0️⃣ Apply Randomized Search CV to optimize Decision Tree and Random Forest hyperparameters
@@ -374,6 +379,15 @@ param_grid=grid_params, cv=5, scoring="f1")
 
 
 ## 📈 Part G : Model Evaluation & ROC Analysis
+
+
+
+<img width="1270" height="541" alt="pic" src="https://github.com/user-attachments/assets/c898128e-2d82-4716-9c7f-28c0288aca7c" />
+
+
+
+
+
 
 ---
 
