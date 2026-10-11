@@ -1,233 +1,269 @@
 
-
 <svg xmlns="http://www.w3.org/2000/svg" width="1270" height="541" viewBox="0 0 1270 541">
   <defs>
-    <linearGradient id="bg" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFFCFD"/>
+    <linearGradient id="bg" x2="0.9" y2="1">
+      <stop stop-color="#FFFAFC"/>
       <stop offset="1" stop-color="#F9E1E9"/>
     </linearGradient>
-    <linearGradient id="rose">
-      <stop offset="0" stop-color="#9B123C"/>
-      <stop offset="1" stop-color="#D8527D"/>
+    <linearGradient id="rose" x2="1" y2="0">
+      <stop stop-color="#9B123C"/>
+      <stop offset=".6" stop-color="#D8527D"/>
+      <stop offset="1" stop-color="#EF91B0"/>
     </linearGradient>
+    <linearGradient id="card" x2="0" y2="1">
+      <stop stop-color="#FFFDFE"/>
+      <stop offset="1" stop-color="#FFF5F8"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop stop-color="#F18BAD" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#F18BAD" stop-opacity="0"/>
+    </radialGradient>
     <style>
-      text{font-family:Arial,Helvetica,sans-serif}
-      .title{font-size:28px;font-weight:700;fill:#351321}
-      .head{font-size:15px;font-weight:700;fill:#351321}
-      .label{font-size:11px;font-weight:700;letter-spacing:1.5px;fill:#C52B59}
-      .body{font-size:12px;fill:#815365}
-      .panel{fill:#fff;stroke:#F5D9E3;stroke-width:1.3}
-      .card{opacity:0;animation:appear .8s ease-out forwards}
-      .c1{animation-delay:.1s}
-      .c2{animation-delay:.3s}
-      .c3{animation-delay:.5s}
-      .c4{animation-delay:.7s}
-      .flow{fill:none;stroke:#D8527D;stroke-width:2;stroke-dasharray:5 5;animation:dash 2s linear infinite}
-      .pulse{animation:pulse 2.2s ease-in-out infinite}
-      .bar{transform-box:fill-box;transform-origin:left center;animation:grow 1.5s ease-out both}
-      .b2{animation-delay:.25s}
-      .b3{animation-delay:.5s}
-      .b4{animation-delay:.75s}
-      .float{animation:float 3s ease-in-out infinite}
-      @keyframes appear{
-        from{opacity:0;transform:translateY(10px)}
-        to{opacity:1;transform:translateY(0)}
+      text { font-family: Arial, sans-serif; fill:#351321 }
+      .micro { font-size:10px; font-weight:bold; letter-spacing:1.5px; fill:#C32155 }
+      .heading { font-size:28px; font-weight:bold }
+      .section { font-size:11px; font-weight:bold; letter-spacing:1.5px; fill:#C32155 }
+      .cardtitle { font-size:15px; font-weight:bold }
+      .muted { font-size:11px; fill:#815365 }
+      .panel { fill:url(#card); stroke:#F6CEDB; stroke-width:1 }
+      .mini { fill:#FFF7FA; stroke:#F7D6E1 }
+      .grid { stroke:#F3D9E3; stroke-width:1 }
+      .roc {
+        fill:none; stroke:url(#rose); stroke-width:4;
+        stroke-linecap:round; stroke-linejoin:round;
+        stroke-dasharray:700; stroke-dashoffset:700;
+        animation: draw 3s ease-out .4s forwards;
       }
-      @keyframes dash{to{stroke-dashoffset:-40}}
-      @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-      @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-      @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+      .area {
+        fill:#E75A87; opacity:0;
+        animation: appear .8s ease-out 2.4s forwards;
+      }
+      .point {
+        fill:#B4174A; stroke:#FFF; stroke-width:2.5;
+        transform-box:fill-box; transform-origin:center;
+        animation: pointPulse 1.7s ease-in-out infinite;
+      }
+      .bar {
+        transform-box:fill-box; transform-origin:left center;
+        transform:scaleX(0);
+        animation: grow 1.2s cubic-bezier(.2,.8,.2,1) forwards;
+      }
+      .fade { opacity:0; animation: appear .65s ease-out forwards }
+      .d1 { animation-delay:.25s }
+      .d2 { animation-delay:.55s }
+      .d3 { animation-delay:.85s }
+      .d4 { animation-delay:1.15s }
+      @keyframes draw { to { stroke-dashoffset:0 } }
+      @keyframes grow { to { transform:scaleX(1) } }
+      @keyframes appear { to { opacity:1 } }
+      @keyframes pointPulse {
+        0%,100% { r:4; opacity:1 }
+        50% { r:7; opacity:.75 }
+      }
+      @keyframes float {
+        0%,100% { transform:translateY(0) }
+        50% { transform:translateY(-3px) }
+      }
+      .auc { animation:float 2s ease-in-out infinite }
+      @media (prefers-reduced-motion: reduce) {
+        * { animation-duration:.01ms !important; animation-iteration-count:1 !important }
+      }
     </style>
   </defs>
 
   <rect width="1270" height="541" fill="url(#bg)"/>
-  <g opacity=".3" stroke="#F0D1DC">
-    <path d="M0 110H1270M0 220H1270M0 330H1270M0 440H1270"/>
-    <path d="M250 0V541M500 0V541M750 0V541M1000 0V541"/>
+
+  <!-- Background grid -->
+  <g opacity=".45" stroke="#F3DCE4">
+    <path d="M0 110H1270 M0 220H1270 M0 330H1270 M0 440H1270"/>
+    <path d="M250 0V541 M500 0V541 M750 0V541 M1000 0V541"/>
   </g>
 
   <!-- Header -->
   <rect x="48" y="26" width="47" height="47" rx="12" fill="url(#rose)"/>
-  <g transform="translate(71 49)" stroke="#fff" fill="none" stroke-width="2">
-    <circle r="9"/>
-    <path d="M0 -14V-9M0 9V14M-14 0H-9M9 0H14"/>
-    <circle r="3"/>
+  <rect x="61" y="40" width="21" height="17" fill="none" stroke="#FFF" stroke-width="1.8"/>
+  <path d="M64 53L69 48L73 51L79 44" fill="none" stroke="#FFF" stroke-width="2"/>
+  <text x="110" y="38" class="micro">PART G / MACHINE LEARNING</text>
+  <text x="110" y="68" class="heading">Model Evaluation &amp; ROC Analysis</text>
+  <text x="48" y="105" font-size="12" fill="#815365">Measure performance • Analyze errors • Compare classifiers</text>
+  <text x="1220" y="41" text-anchor="end" class="micro">MODEL VALIDATION / 07</text>
+
+  <!-- Main workflow panel -->
+  <rect x="48" y="133" width="850" height="360" rx="19" fill="#FFF" stroke="#F6D1DE" stroke-width="1.3"/>
+  <text x="68" y="161" class="section">EVALUATION WORKFLOW</text>
+
+  <!-- Card 1: Confusion Matrix -->
+  <rect x="62" y="180" width="190" height="294" rx="14" class="panel"/>
+  <circle cx="85" cy="207" r="14" fill="#F8DCE6"/>
+  <rect x="77" y="199" width="16" height="16" rx="2" fill="none" stroke="#AE1748" stroke-width="1.7"/>
+  <path d="M85 199V215 M77 207H93" stroke="#AE1748" stroke-width="1.5"/>
+  <text x="106" y="203" class="micro">01 / ERRORS</text>
+  <text x="78" y="240" class="cardtitle">Confusion Matrix</text>
+  <text x="157" y="259" text-anchor="middle" class="muted">PREDICTED</text>
+  <text x="127" y="274" text-anchor="middle" class="muted">0</text>
+  <text x="183" y="274" text-anchor="middle" class="muted">1</text>
+  <text x="80" y="305" font-size="9" fill="#815365">Actual 0</text>
+  <text x="80" y="351" font-size="9" fill="#815365">Actual 1</text>
+
+  <g class="fade d1">
+    <rect x="109" y="282" width="45" height="40" rx="6" fill="#B4184A"/>
+    <text x="131" y="307" text-anchor="middle" font-size="15" font-weight="bold" fill="#FFF">TN</text>
+    <rect x="160" y="282" width="45" height="40" rx="6" fill="#F7DDE6"/>
+    <text x="182" y="307" text-anchor="middle" font-size="15" font-weight="bold" fill="#A91745">FP</text>
+    <rect x="109" y="327" width="45" height="40" rx="6" fill="#F7DDE6"/>
+    <text x="131" y="352" text-anchor="middle" font-size="15" font-weight="bold" fill="#A91745">FN</text>
+    <rect x="160" y="327" width="45" height="40" rx="6" fill="#D94C7B"/>
+    <text x="182" y="352" text-anchor="middle" font-size="15" font-weight="bold" fill="#FFF">TP</text>
   </g>
-  <text x="110" y="38" class="label">PART F / MACHINE LEARNING</text>
-  <text x="110" y="68" class="title">Hyperparameter Tuning</text>
-  <text x="48" y="105" class="body">Search • Optimize • Validate • Select</text>
-  <text x="1220" y="42" text-anchor="end" class="label">MODEL OPTIMIZATION / 06</text>
+  <text x="78" y="398" font-size="12" fill="#815365">Correct vs incorrect</text>
+  <text x="78" y="414" font-size="12" fill="#815365">class predictions</text>
+  <rect x="78" y="436" width="112" height="23" rx="12" fill="#F9DCE6"/>
+  <text x="134" y="451" text-anchor="middle" font-size="10" font-weight="bold" fill="#A81747">ERROR CHECK</text>
 
-  <rect x="48" y="133" width="850" height="360" rx="18" class="panel"/>
-  <text x="68" y="161" class="label">TUNING WORKFLOW</text>
+  <!-- Flow arrow -->
+  <circle cx="263" cy="326" r="9" fill="#E995B0"/>
+  <path d="M260 322L265 326L260 330" fill="none" stroke="#FFF" stroke-width="1.7"/>
 
-  <!-- Stage 1 -->
-  <g class="card c1">
-    <rect x="62" y="180" width="190" height="294" rx="13" fill="#FFF8FA" stroke="#F5D9E3"/>
-    <circle cx="85" cy="207" r="14" fill="#F8D8E3"/>
-    <g transform="translate(85 207)" stroke="#9B123C" fill="none" stroke-width="1.7">
-      <rect x="-7" y="-7" width="14" height="14" rx="3"/>
-      <path d="M-3 -3H3M-3 1H3"/>
-    </g>
-    <text x="107" y="203" class="label">01 / MODEL</text>
-    <text x="78" y="239" class="head">Choose Model</text>
+  <!-- Card 2: Metrics -->
+  <rect x="276" y="180" width="190" height="294" rx="14" class="panel"/>
+  <circle cx="300" cy="207" r="14" fill="#F8DCE6"/>
+  <path d="M292 214V205H297V214 M299 214V198H304V214 M306 214V202H311V214" fill="none" stroke="#AE1748" stroke-width="2"/>
+  <text x="321" y="203" class="micro">02 / METRICS</text>
+  <text x="292" y="240" class="cardtitle">Performance Scores</text>
+  <rect x="291" y="257" width="160" height="143" rx="10" fill="#FCECF1"/>
 
-    <rect x="77" y="257" width="160" height="52" rx="8" fill="#FCECF1"/>
-    <g transform="translate(98 283)" stroke="#9B123C" fill="none" stroke-width="1.7">
-      <circle cy="-7" r="3"/><circle cx="-7" cy="6" r="3"/><circle cx="7" cy="6" r="3"/>
-      <path d="M0 -4V0L-7 3M0 0L7 3"/>
-    </g>
-    <text x="117" y="280" font-size="12" font-weight="700" fill="#351321">Decision Tree</text>
-    <text x="117" y="295" class="body">Base estimator</text>
-
-    <rect x="77" y="317" width="160" height="52" rx="8" fill="#FCECF1"/>
-    <g transform="translate(98 343)" stroke="#9B123C" fill="none" stroke-width="1.7">
-      <path d="M-9 7L-6 -7L-2 7M1 7L4 -6L8 7M-11 9H10"/>
-    </g>
-    <text x="117" y="340" font-size="12" font-weight="700" fill="#351321">Random Forest</text>
-    <text x="117" y="355" class="body">Ensemble model</text>
-    <text x="78" y="401" class="body">Define parameters</text>
-    <text x="78" y="419" class="body">to improve results</text>
-    <rect x="78" y="436" width="117" height="23" rx="11" fill="#F8DDE7"/>
-    <text x="136" y="451" text-anchor="middle" font-size="10" font-weight="700" fill="#9B123C">MODEL SETUP</text>
+  <g class="fade d1">
+    <text x="302" y="279" class="muted">Accuracy</text>
+    <text x="440" y="279" text-anchor="end" font-size="10" font-weight="bold" fill="#A81747">92%</text>
+    <rect x="302" y="286" width="136" height="7" rx="3.5" fill="#F1D1DC"/>
+    <rect class="bar d1" x="302" y="286" width="125" height="7" rx="3.5" fill="url(#rose)"/>
   </g>
-
-  <path d="M254 326H271" class="flow"/>
-  <circle cx="263" cy="326" r="9" fill="#D8527D" class="pulse"/>
-  <path d="M260 322L265 326L260 330" fill="none" stroke="#fff" stroke-width="1.5"/>
-
-  <!-- Stage 2 -->
-  <g class="card c2">
-    <rect x="276" y="180" width="190" height="294" rx="13" fill="#FFF8FA" stroke="#F5D9E3"/>
-    <circle cx="299" cy="207" r="14" fill="#F8D8E3"/>
-    <g transform="translate(299 207)" stroke="#9B123C" fill="none" stroke-width="1.7">
-      <circle r="7"/><path d="M5 5L10 10M-3 0H3M0 -3V3"/>
-    </g>
-    <text x="321" y="203" class="label">02 / SEARCH</text>
-    <text x="292" y="239" class="head">Search Methods</text>
-    <rect x="291" y="257" width="160" height="68" rx="8" fill="#FCECF1"/>
-    <g transform="translate(307 273)" stroke="#9B123C" fill="none" stroke-width="1.5">
-      <rect width="16" height="16" rx="2"/>
-      <path d="M5 0V16M11 0V16M0 5H16M0 11H16"/>
-    </g>
-    <text x="333" y="275" font-size="12" font-weight="700" fill="#351321">Grid Search</text>
-    <text x="303" y="296" class="body">Tests combinations</text>
-    <text x="303" y="311" class="body">systematically</text>
-    <rect x="291" y="334" width="160" height="68" rx="8" fill="#FCECF1"/>
-    <g transform="translate(315 351)" stroke="#9B123C" fill="none" stroke-width="1.6">
-      <circle cx="-5" cy="-4" r="3"/><circle cx="6" cy="-6" r="3"/>
-      <circle cx="2" cy="6" r="3"/><circle cx="-8" cy="8" r="2"/>
-    </g>
-    <text x="333" y="352" font-size="12" font-weight="700" fill="#351321">Random Search</text>
-    <text x="303" y="374" class="body">Samples parameter</text>
-    <text x="303" y="389" class="body">combinations</text>
-    <text x="292" y="444" class="body">Compare search results</text>
+  <g class="fade d2">
+    <text x="302" y="313" class="muted">Precision</text>
+    <text x="440" y="313" text-anchor="end" font-size="10" font-weight="bold" fill="#A81747">89%</text>
+    <rect x="302" y="320" width="136" height="7" rx="3.5" fill="#F1D1DC"/>
+    <rect class="bar d2" x="302" y="320" width="121" height="7" rx="3.5" fill="url(#rose)"/>
   </g>
-
-  <path d="M468 326H485" class="flow"/>
-  <circle cx="477" cy="326" r="9" fill="#D8527D" class="pulse"/>
-  <path d="M474 322L479 326L474 330" fill="none" stroke="#fff" stroke-width="1.5"/>
-
-  <!-- Stage 3 -->
-  <g class="card c3">
-    <rect x="490" y="180" width="190" height="294" rx="13" fill="#FFF8FA" stroke="#F5D9E3"/>
-    <circle cx="513" cy="207" r="14" fill="#F8D8E3"/>
-    <g transform="translate(513 207)" stroke="#9B123C" fill="none" stroke-width="1.7">
-      <path d="M-8 -6H8M-8 0H8M-8 6H8"/>
-      <circle cx="-2" cy="-6" r="2.5" fill="#fff"/>
-      <circle cx="4" cy="0" r="2.5" fill="#fff"/>
-      <circle cx="-4" cy="6" r="2.5" fill="#fff"/>
-    </g>
-    <text x="535" y="203" class="label">03 / TUNE</text>
-    <text x="506" y="239" class="head">Adjust Parameters</text>
-    <rect x="505" y="257" width="160" height="140" rx="9" fill="#FFF1F6" stroke="#F3D3DE"/>
-
-    <text x="518" y="279" font-size="12" font-weight="700" fill="#351321">max_depth</text>
-    <path d="M519 291H649" stroke="#F1C6D5" stroke-width="5" stroke-linecap="round"/>
-    <path d="M519 291H595" stroke="url(#rose)" stroke-width="5" stroke-linecap="round" class="bar"/>
-    <circle cx="595" cy="291" r="6" fill="#B62250" class="pulse"/>
-
-    <text x="518" y="316" font-size="12" font-weight="700" fill="#351321">n_estimators</text>
-    <path d="M519 328H649" stroke="#F1C6D5" stroke-width="5" stroke-linecap="round"/>
-    <path d="M519 328H620" stroke="url(#rose)" stroke-width="5" stroke-linecap="round" class="bar b2"/>
-    <circle cx="620" cy="328" r="6" fill="#B62250" class="pulse"/>
-
-    <text x="518" y="353" font-size="12" font-weight="700" fill="#351321">learning_rate</text>
-    <path d="M519 365H649" stroke="#F1C6D5" stroke-width="5" stroke-linecap="round"/>
-    <path d="M519 365H575" stroke="url(#rose)" stroke-width="5" stroke-linecap="round" class="bar b3"/>
-    <circle cx="575" cy="365" r="6" fill="#B62250" class="pulse"/>
-    <text x="506" y="427" class="body">Optimize settings</text>
-    <text x="506" y="447" class="body">Cross-validation</text>
+  <g class="fade d3">
+    <text x="302" y="347" class="muted">Recall</text>
+    <text x="440" y="347" text-anchor="end" font-size="10" font-weight="bold" fill="#A81747">91%</text>
+    <rect x="302" y="354" width="136" height="7" rx="3.5" fill="#F1D1DC"/>
+    <rect class="bar d3" x="302" y="354" width="124" height="7" rx="3.5" fill="url(#rose)"/>
   </g>
-
-  <path d="M682 326H699" class="flow"/>
-  <circle cx="691" cy="326" r="9" fill="#D8527D" class="pulse"/>
-  <path d="M688 322L693 326L688 330" fill="none" stroke="#fff" stroke-width="1.5"/>
-
-  <!-- Stage 4 -->
-  <g class="card c4">
-    <rect x="704" y="180" width="180" height="294" rx="13" fill="#FFF8FA" stroke="#F5D9E3"/>
-    <circle cx="727" cy="207" r="14" fill="#F8D8E3"/>
-    <g transform="translate(727 207)" stroke="#9B123C" fill="none" stroke-width="1.8">
-      <path d="M-9 8L-3 1L1 4L9 -7M4 -7H9V-2"/>
-    </g>
-    <text x="749" y="203" class="label">04 / RESULTS</text>
-    <text x="720" y="239" class="head">Best Performance</text>
-    <rect x="720" y="257" width="148" height="104" rx="9" fill="#FCECF1"/>
-    <text x="733" y="278" class="body">Before tuning</text>
-    <rect x="733" y="286" width="122" height="9" rx="4" fill="#F1D0DC"/>
-    <rect x="733" y="286" width="89" height="9" rx="4" fill="#E6A0B8" class="bar b2"/>
-    <text x="733" y="316" class="body">After tuning</text>
-    <rect x="733" y="324" width="122" height="9" rx="4" fill="#F1D0DC"/>
-    <rect x="733" y="324" width="109" height="9" rx="4" fill="url(#rose)" class="bar b3"/>
-    <text x="733" y="350" font-size="10" fill="#9B123C">Illustrative scores</text>
-    <text x="721" y="392" class="body">Compare validation</text>
-    <text x="721" y="410" class="body">scores and select</text>
-    <text x="721" y="428" class="body">best settings</text>
-    <rect x="721" y="440" width="113" height="22" rx="11" fill="#F8DDE7"/>
-    <text x="777" y="455" text-anchor="middle" font-size="10" font-weight="700" fill="#9B123C">BEST MODEL</text>
+  <g class="fade d4">
+    <text x="302" y="381" class="muted">F1-Score</text>
+    <text x="440" y="381" text-anchor="end" font-size="10" font-weight="bold" fill="#A81747">88%</text>
+    <rect x="302" y="388" width="136" height="7" rx="3.5" fill="#F1D1DC"/>
+    <rect class="bar d4" x="302" y="388" width="120" height="7" rx="3.5" fill="url(#rose)"/>
   </g>
+  <text x="292" y="426" font-size="12" fill="#815365">Compare key metrics</text>
+  <text x="292" y="442" font-size="12" fill="#815365">across models</text>
 
-  <!-- Insights panel -->
-  <rect x="916" y="133" width="306" height="360" rx="18" class="panel card"/>
-  <text x="937" y="161" class="label">TUNING INSIGHTS</text>
-  <text x="937" y="193" class="title" style="font-size:21px">Performance Gain</text>
-  <text x="937" y="216" class="body">Illustrative validation scores</text>
+  <circle cx="477" cy="326" r="9" fill="#E995B0"/>
+  <path d="M474 322L479 326L474 330" fill="none" stroke="#FFF" stroke-width="1.7"/>
 
-  <text x="937" y="251" class="body">Baseline</text>
-  <rect x="1005" y="239" width="174" height="15" rx="7" fill="#F8E4EB"/>
-  <rect x="1005" y="239" width="125" height="15" rx="7" fill="#E6A0B8" class="bar"/>
-  <text x="1198" y="251" text-anchor="end" font-size="11" font-weight="700" fill="#815365">72%</text>
+  <!-- Card 3: ROC graph -->
+  <rect x="490" y="180" width="190" height="294" rx="14" class="panel"/>
+  <circle cx="514" cy="207" r="14" fill="#F8DCE6"/>
+  <path d="M506 215V199 M506 215H522 M508 211L513 205L516 208L523 199" fill="none" stroke="#AE1748" stroke-width="1.8"/>
+  <text x="535" y="203" class="micro">03 / ROC</text>
+  <text x="506" y="240" class="cardtitle">ROC Curve</text>
 
-  <text x="937" y="289" class="body">Tuned</text>
-  <rect x="1005" y="277" width="174" height="15" rx="7" fill="#F8E4EB"/>
-  <rect x="1005" y="277" width="151" height="15" rx="7" fill="url(#rose)" class="bar b2"/>
-  <text x="1198" y="289" text-anchor="end" font-size="11" font-weight="700" fill="#9B123C">87%</text>
-
-  <path d="M937 315H1201" stroke="#F0D1DC"/>
-  <text x="937" y="341" class="label">KEY PARAMETERS</text>
-  <g font-size="12" fill="#815365">
-    <text x="939" y="366">max_depth</text>
-    <text x="939" y="390">n_estimators</text>
-    <text x="939" y="414">learning_rate</text>
+  <rect x="505" y="253" width="160" height="151" rx="10" fill="#FFF2F7" stroke="#F6D2DF"/>
+  <!-- Plot grid -->
+  <g class="grid">
+    <path d="M530 276H646 M530 301H646 M530 326H646 M530 351H646 M530 376H646"/>
+    <path d="M530 276V376 M559 276V376 M588 276V376 M617 276V376 M646 276V376"/>
   </g>
-  <g fill="#F8D8E3">
-    <rect x="1080" y="356" width="112" height="13" rx="6"/>
-    <rect x="1080" y="380" width="112" height="13" rx="6"/>
-    <rect x="1080" y="404" width="112" height="13" rx="6"/>
+  <path d="M530 376L646 276" stroke="#E8B5C8" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <path d="M530 276V376H646" fill="none" stroke="#C89BAC" stroke-width="1.2"/>
+  <text x="588" y="393" text-anchor="middle" font-size="8" fill="#815365">False Positive Rate</text>
+  <text x="516" y="328" text-anchor="middle" font-size="8" fill="#815365" transform="rotate(-90 516 328)">True Positive Rate</text>
+
+  <!-- Graph fill draws in with the ROC line -->
+  <path class="area" d="M530 376 C535 335 541 315 553 301 S573 282 590 279 S622 276 646 276 L646 376Z">
+    <animate attributeName="opacity" values="0;0.14;0.14" dur="3.4s" fill="freeze"/>
+  </path>
+
+  <!-- Actual animated graph curve -->
+  <path class="roc" d="M530 376 C535 335 541 315 553 301 S573 282 590 279 S622 276 646 276"/>
+
+  <circle class="point" cx="541" cy="328" r="4">
+    <animate attributeName="opacity" values="0;1" dur=".3s" begin="1.3s" fill="freeze"/>
+  </circle>
+  <circle class="point" cx="553" cy="301" r="4">
+    <animate attributeName="opacity" values="0;1" dur=".3s" begin="1.6s" fill="freeze"/>
+  </circle>
+  <circle class="point" cx="590" cy="279" r="4">
+    <animate attributeName="opacity" values="0;1" dur=".3s" begin="2s" fill="freeze"/>
+  </circle>
+  <circle class="point" cx="646" cy="276" r="4">
+    <animate attributeName="opacity" values="0;1" dur=".3s" begin="2.5s" fill="freeze"/>
+  </circle>
+
+  <text x="506" y="425" font-size="12" fill="#815365">Sensitivity vs</text>
+  <text x="506" y="441" font-size="12" fill="#815365">false positive rate</text>
+
+  <circle cx="691" cy="326" r="9" fill="#E995B0"/>
+  <path d="M688 322L693 326L688 330" fill="none" stroke="#FFF" stroke-width="1.7"/>
+
+  <!-- Card 4: AUC -->
+  <rect x="704" y="180" width="180" height="294" rx="14" class="panel"/>
+  <circle cx="728" cy="207" r="14" fill="#F8DCE6"/>
+  <circle cx="728" cy="207" r="8" fill="none" stroke="#AE1748" stroke-width="1.8"/>
+  <path d="M724 207L727 210L733 203" fill="none" stroke="#AE1748" stroke-width="1.8"/>
+  <text x="749" y="203" class="micro">04 / AUC</text>
+  <text x="720" y="240" class="cardtitle">Classifier Quality</text>
+  <rect x="720" y="257" width="148" height="117" rx="11" fill="#FCECF1"/>
+  <text x="733" y="280" font-size="12" fill="#815365">AUC Score</text>
+  <text x="794" y="321" text-anchor="middle" font-size="31" font-weight="bold" fill="#A81747">0.91</text>
+  <rect x="733" y="339" width="122" height="8" rx="4" fill="#F1CFDC"/>
+  <rect x="733" y="339" width="111" height="8" rx="4" fill="url(#rose)">
+    <animate attributeName="width" values="0;111" dur="1.6s" fill="freeze"/>
+  </rect>
+  <text x="733" y="363" font-size="9" fill="#815365">Illustrative value</text>
+  <text x="720" y="401" font-size="12" fill="#815365">Higher AUC means</text>
+  <text x="720" y="417" font-size="12" fill="#815365">better class separation</text>
+  <rect x="720" y="436" width="124" height="23" rx="12" fill="#F9DCE6"/>
+  <text x="782" y="451" text-anchor="middle" font-size="10" font-weight="bold" fill="#A81747">MODEL CHECK</text>
+
+  <!-- Right side classifier comparison -->
+  <rect x="916" y="133" width="306" height="360" rx="19" fill="#FFF" stroke="#F6D1DE" stroke-width="1.3"/>
+  <text x="937" y="161" class="section">ROC ANALYSIS</text>
+  <text x="937" y="192" font-size="20" font-weight="bold">Classifier Comparison</text>
+  <text x="937" y="216" font-size="11" fill="#815365">Illustrative AUC values</text>
+
+  <g class="fade d1">
+    <text x="937" y="251" font-size="11" fill="#815365">Decision Tree</text>
+    <rect x="1035" y="239" width="144" height="14" rx="7" fill="#F5DCE5"/>
+    <rect x="1035" y="239" width="112" height="14" rx="7" fill="#E99BB6"/>
+    <rect class="bar d1" x="1035" y="239" width="112" height="14" rx="7" fill="url(#rose)"/>
+    <text x="1197" y="250" font-size="10" font-weight="bold" fill="#815365">0.78</text>
   </g>
-  <g fill="url(#rose)">
-    <rect x="1080" y="356" width="79" height="13" rx="6" class="bar"/>
-    <rect x="1080" y="380" width="93" height="13" rx="6" class="bar b2"/>
-    <rect x="1080" y="404" width="61" height="13" rx="6" class="bar b3"/>
+  <g class="fade d2">
+    <text x="937" y="286" font-size="11" fill="#815365">Random Forest</text>
+    <rect x="1035" y="274" width="144" height="14" rx="7" fill="#F5DCE5"/>
+    <rect class="bar d2" x="1035" y="274" width="127" height="14" rx="7" fill="url(#rose)"/>
+    <text x="1197" y="285" font-size="10" font-weight="bold" fill="#815365">0.88</text>
+  </g>
+  <g class="fade d3">
+    <text x="937" y="321" font-size="11" fill="#815365">Tuned Model</text>
+    <rect x="1035" y="309" width="144" height="14" rx="7" fill="#F5DCE5"/>
+    <rect class="bar d3" x="1035" y="309" width="131" height="14" rx="7" fill="url(#rose)"/>
+    <text x="1197" y="320" font-size="10" font-weight="bold" fill="#A81747">0.91</text>
   </g>
 
-  <rect x="934" y="435" width="270" height="39" rx="10" fill="url(#rose)"/>
-  <text x="1069" y="459" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Tune • Validate • Improve</text>
+  <path d="M937 344H1200" stroke="#F4D5E0"/>
+  <rect x="934" y="362" width="270" height="112" rx="13" fill="url(#rose)"/>
+  <text x="951" y="386" font-size="11" font-weight="bold" letter-spacing="1" fill="#FFF">KEY TAKEAWAY</text>
+  <text x="951" y="410" font-size="12" font-weight="bold" fill="#FFF">Evaluate beyond accuracy</text>
+  <text x="951" y="430" font-size="11" fill="#FFF">Use ROC-AUC and error metrics</text>
+  <text x="951" y="445" font-size="11" fill="#FFF">to compare classifiers.</text>
+  <text x="951" y="462" font-size="9" fill="#FFF">Check false positives and negatives</text>
 
   <!-- Footer -->
-  <path d="M48 511H1222" stroke="#E9B8C9"/>
-  <text x="48" y="531" class="label">HYPERPARAMETER TUNING</text>
-  <text x="635" y="531" text-anchor="middle" class="body">MODEL → SEARCH → TUNE → EVALUATE</text>
-  <text x="1222" y="531" text-anchor="end" class="label">PART F / 06</text>
+  <path d="M48 510H1222" stroke="#EEC4D2"/>
+  <text x="48" y="530" class="micro">MODEL EVALUATION &amp; ROC</text>
+  <text x="635" y="530" text-anchor="middle" font-size="12" fill="#815365">ERRORS → METRICS → ROC → AUC</text>
+  <text x="1222" y="530" text-anchor="end" class="micro">PART G / 07</text>
 </svg>
