@@ -2,7 +2,13 @@
 # 🎯 Risk Alert Classifier
 
 
-<img width="1600" height="700" alt="pic" src="https://github.com/user-attachments/assets/297d8e7a-8d66-4b66-8593-e3611e27b547" />
+
+<img width="1270" height="541" alt="pic" src="https://github.com/user-attachments/assets/34192da6-6256-4c2e-93cc-7a486c98337c" />
+
+
+
+
+
 
 
 this project is to evaluate understanding of advanced supervised learning **classification** techniques, with a strong focus on imbalanced classification, resampling strategies (Under-Sampling, Over-Sampling, SMOTE, ADASYN), model generalization, hyperparameter tuning, and tree-based classification algorithms. Students will learn how to control overfitting, handle minority classes, and compare linear vs non-linear classifiers using real-world customer credit-risk data.
@@ -93,6 +99,7 @@ Your manager asks you to build a baseline classifier, evaluate it with confusion
 ## 🧠 Part B : Dataset Understanding & Preparation
 
 
+<img width="1270" height="541" alt="pic" src="https://github.com/user-attachments/assets/c3d4a543-e547-45b3-9fce-a2240a17a536" />
 
 
 
