@@ -1,126 +1,158 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
-  <defs>
-    <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#9b123c"/>
-      <stop offset="100%" stop-color="#d8527d"/>
-    </linearGradient>
-    <style>
-      text { font-family: Arial, sans-serif; }
-      .float { animation: float 3s ease-in-out infinite; }
-      .pulse { animation: pulse 2s ease-in-out infinite; }
-      @keyframes float {
-        0%,100% { transform: translateY(0); }
-        50% { transform: translateY(-7px); }
-      }
-      @keyframes pulse {
-        0%,100% { opacity:.6; }
-        50% { opacity:1; }
-      }
-    </style>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="1270" height="541" viewBox="0 0 1270 541">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFF9FB"/>
+    <stop offset="1" stop-color="#F9E1E9"/>
+  </linearGradient>
+  <linearGradient id="rose" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#9B123C"/>
+    <stop offset="1" stop-color="#D8527D"/>
+  </linearGradient>
+  <linearGradient id="pink" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B93962"/>
+    <stop offset="1" stop-color="#F18AAA"/>
+  </linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#9B123C" flood-opacity=".12"/>
+  </filter>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="4" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif}
+    .float{animation:float 4s ease-in-out infinite}
+    .float2{animation:float 5s ease-in-out 1s infinite}
+    .pulse{animation:pulse 2.5s ease-in-out infinite}
+    .flow{stroke-dasharray:6 8;animation:flow 12s linear infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    @keyframes pulse{0%,100%{opacity:.65}50%{opacity:1}}
+    @keyframes flow{to{stroke-dashoffset:-140}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+</defs>
 
-  <rect width="800" height="450" rx="22" fill="#fff8fb"/>
-  <circle cx="740" cy="50" r="110" fill="#f9e1e9"/>
+<!-- Background -->
+<rect width="1270" height="541" rx="8" fill="url(#bg)"/>
+<circle cx="1120" cy="30" r="160" fill="#F5C3D2" opacity=".18"/>
+<circle cx="70" cy="480" r="125" fill="#F5C3D2" opacity=".15"/>
 
-  <rect x="40" y="32" width="38" height="38" rx="12" fill="#9b123c"/>
-  <circle cx="59" cy="51" r="11" fill="none" stroke="#fff" stroke-width="2"/>
-  <circle cx="59" cy="51" r="4" fill="#fff"/>
+<!-- Fine background grid -->
+<g stroke="#B93962" stroke-width=".7" opacity=".07">
+  <path d="M0 75H1270M0 155H1270M0 235H1270M0 315H1270M0 395H1270M0 475H1270"/>
+  <path d="M80 0V541M220 0V541M360 0V541M500 0V541M640 0V541M780 0V541M920 0V541M1060 0V541M1200 0V541"/>
+</g>
 
-  <text x="92" y="45" font-size="12" letter-spacing="3" fill="#b93962">
-    INTELLIGENT MONITORING
-  </text>
-  <text x="92" y="72" font-size="28" font-weight="bold" fill="#351321">
-    Risk Alert Classifier
-  </text>
-  <text x="42" y="104" font-size="13" fill="#815365">
-    Detect signals. Classify risk. Act with confidence.
-  </text>
+<!-- Top heading -->
+<g transform="translate(65 37)">
+  <rect width="42" height="42" rx="12" fill="#9B123C"/>
+  <circle cx="21" cy="21" r="13" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity=".8"/>
+  <circle cx="21" cy="21" r="7" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="21" cy="21" r="2.8" fill="#FFFFFF"/>
+  <text x="56" y="13" font-size="10" font-weight="bold" letter-spacing="2.5" fill="#B93962">INTELLIGENT MONITORING</text>
+  <text x="56" y="39" font-size="25" font-weight="bold" fill="#351321">Risk Alert Classifier</text>
+</g>
 
-  <rect x="40" y="130" width="465" height="260" rx="20"
-        fill="#fff" stroke="#f0c9d6"/>
+<text x="1205" y="55" text-anchor="end" font-size="10" font-weight="bold" letter-spacing="2" fill="#B93962">RISK INTELLIGENCE / 01</text>
+<text x="1205" y="73" text-anchor="end" font-size="10" fill="#A8798A">DETECT • CLASSIFY • RESPOND</text>
 
-  <text x="65" y="160" font-size="12" font-weight="bold"
-        letter-spacing="2" fill="#b93962">LIVE RISK OVERVIEW</text>
-  <text x="65" y="187" font-size="19" font-weight="bold"
-        fill="#351321">Alert classification</text>
+<!-- Left: risk score card -->
+<g filter="url(#shadow)">
+  <rect x="65" y="112" width="300" height="337" rx="18" fill="#FFFFFF" stroke="#F0C9D6"/>
+</g>
+<g>
+  <text x="87" y="142" font-size="10" font-weight="bold" letter-spacing="1.8" fill="#B93962">LIVE RISK OVERVIEW</text>
+  <text x="87" y="166" font-size="18" font-weight="bold" fill="#351321">Risk assessment</text>
+  <line x1="87" y1="181" x2="343" y2="181" stroke="#F3E2E8"/>
 
-  <circle cx="140" cy="267" r="53" fill="#fff0f4"/>
-  <circle cx="140" cy="267" r="43" fill="none"
-          stroke="#f5d6e0" stroke-width="10"/>
-  <circle cx="140" cy="267" r="43" fill="none"
-          stroke="url(#pink)" stroke-width="10"
-          stroke-linecap="round" stroke-dasharray="195 270"
-          transform="rotate(-90 140 267)">
-    <animate attributeName="stroke-dasharray"
-             values="160 270;210 270;160 270"
-             dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <text x="140" y="274" font-size="29" font-weight="bold"
-        text-anchor="middle" fill="#9b123c">72</text>
-  <text x="140" y="333" font-size="12" text-anchor="middle"
-        fill="#815365">ELEVATED RISK</text>
+  <circle cx="215" cy="278" r="69" fill="#FFF7FA" stroke="#F5D6E0" stroke-width="12"/>
+  <circle cx="215" cy="278" r="69" fill="none" stroke="url(#rose)" stroke-width="12" stroke-linecap="round" stroke-dasharray="305 434" transform="rotate(-90 215 278)" class="pulse"/>
+  <circle cx="215" cy="278" r="49" fill="#FFFFFF"/>
+  <text x="215" y="278" text-anchor="middle" font-size="37" font-weight="bold" fill="#9B123C">72</text>
+  <text x="215" y="299" text-anchor="middle" font-size="9" font-weight="bold" letter-spacing="1.5" fill="#A8798A">RISK SCORE</text>
 
-  <g transform="translate(220 220)">
-    <text x="0" y="0" font-size="13" fill="#573042">High risk</text>
-    <text x="230" y="0" font-size="13" text-anchor="end"
-          font-weight="bold" fill="#9b123c">72%</text>
-    <rect y="12" width="230" height="9" rx="4" fill="#f7e5eb"/>
-    <rect y="12" width="166" height="9" rx="4" fill="url(#pink)">
-      <animate attributeName="width" values="145;166;145"
-               dur="3s" repeatCount="indefinite"/>
+  <rect x="87" y="365" width="256" height="52" rx="10" fill="#FFF0F4"/>
+  <circle cx="105" cy="391" r="5" fill="#D8527D" class="pulse"/>
+  <text x="119" y="387" font-size="12" font-weight="bold" fill="#9B123C">Elevated Risk</text>
+  <text x="119" y="403" font-size="10" fill="#815365">Review flagged activity</text>
+</g>
+
+<!-- Center: title and classification -->
+<g>
+  <text x="405" y="147" font-size="11" font-weight="bold" letter-spacing="2.5" fill="#B93962">AI-POWERED ANALYSIS</text>
+  <text x="400" y="198" font-size="39" font-weight="bold" fill="#351321">Risk Alert</text>
+  <text x="400" y="244" font-size="39" font-weight="bold" fill="#D8527D">Classifier</text>
+  <text x="403" y="269" font-size="11" letter-spacing="1.5" fill="#815365">PREDICT • PRIORITIZE • PROTECT</text>
+  <line x1="400" y1="284" x2="855" y2="284" stroke="#E9B7C8" stroke-width="1.5"/>
+  <line x1="400" y1="284" x2="560" y2="284" stroke="#9B123C" stroke-width="3">
+    <animate attributeName="x2" values="400;560;720;400" dur="6s" repeatCount="indefinite"/>
+  </line>
+
+  <g transform="translate(400 308)">
+    <text x="0" y="0" font-size="11" font-weight="bold" fill="#573042">High risk</text>
+    <text x="455" y="0" text-anchor="end" font-size="11" font-weight="bold" fill="#9B123C">72%</text>
+    <rect x="0" y="11" width="455" height="9" rx="4.5" fill="#F7E5EB"/>
+    <rect x="0" y="11" width="328" height="9" rx="4.5" fill="url(#rose)">
+      <animate attributeName="width" values="300;328;300" dur="4s" repeatCount="indefinite"/>
     </rect>
 
-    <text x="0" y="53" font-size="13" fill="#573042">Medium risk</text>
-    <text x="230" y="53" font-size="13" text-anchor="end"
-          fill="#b93962">21%</text>
-    <rect y="65" width="230" height="9" rx="4" fill="#f7e5eb"/>
-    <rect y="65" width="48" height="9" rx="4" fill="#f18aaa"/>
+    <text x="0" y="49" font-size="11" font-weight="bold" fill="#573042">Medium risk</text>
+    <text x="455" y="49" text-anchor="end" font-size="11" font-weight="bold" fill="#B93962">21%</text>
+    <rect x="0" y="60" width="455" height="9" rx="4.5" fill="#F7E5EB"/>
+    <rect x="0" y="60" width="96" height="9" rx="4.5" fill="#F18AAA"/>
 
-    <text x="0" y="106" font-size="13" fill="#573042">Low risk</text>
-    <text x="230" y="106" font-size="13" text-anchor="end"
-          fill="#b93962">7%</text>
-    <rect y="118" width="230" height="9" rx="4" fill="#f7e5eb"/>
-    <rect y="118" width="16" height="9" rx="4" fill="#f9b3c9"/>
+    <text x="0" y="98" font-size="11" font-weight="bold" fill="#573042">Low risk</text>
+    <text x="455" y="98" text-anchor="end" font-size="11" font-weight="bold" fill="#B93962">7%</text>
+    <rect x="0" y="109" width="455" height="9" rx="4.5" fill="#F7E5EB"/>
+    <rect x="0" y="109" width="32" height="9" rx="4.5" fill="#F9B3C9"/>
   </g>
 
-  <g class="float">
-    <rect x="530" y="130" width="230" height="115" rx="18"
-          fill="#fff" stroke="#f0c9d6"/>
-    <text x="550" y="157" font-size="11" font-weight="bold"
-          letter-spacing="1.5" fill="#b93962">SIGNAL DETECTED</text>
-    <circle cx="565" cy="198" r="19" fill="#fff0f4"/>
-    <circle cx="565" cy="198" r="11" fill="none"
-            stroke="#d8527d" stroke-width="2"/>
-    <circle cx="565" cy="198" r="4" fill="#9b123c"/>
-    <text x="595" y="194" font-size="15" font-weight="bold"
-          fill="#351321">Anomaly found</text>
-    <text x="595" y="213" font-size="10" fill="#815365">
-      Pattern deviation detected
-    </text>
+  <g transform="translate(400 454)">
+    <rect width="455" height="34" rx="9" fill="#FFFFFF" stroke="#F0C9D6"/>
+    <circle cx="17" cy="17" r="5" fill="#9B123C"/>
+    <text x="30" y="21" font-size="10" font-weight="bold" fill="#815365">Classification confidence and risk levels</text>
   </g>
+</g>
 
-  <g class="float" style="animation-delay:-1.2s">
-    <rect x="530" y="265" width="230" height="125" rx="18"
-          fill="url(#pink)"/>
-    <text x="550" y="292" font-size="11" letter-spacing="2"
-          fill="#ffe8ef">MODEL DECISION</text>
-    <text x="550" y="323" font-size="24" font-weight="bold"
-          fill="#fff">HIGH RISK</text>
-    <text x="550" y="344" font-size="12" fill="#ffe8ef">
-      Confidence threshold exceeded
-    </text>
-    <circle cx="554" cy="367" r="4" fill="#fff" class="pulse"/>
-    <text x="566" y="371" font-size="11" fill="#fff">
-      Priority alert • Review now
-    </text>
-  </g>
+<!-- Right: alert card -->
+<g filter="url(#shadow)">
+  <rect x="895" y="112" width="310" height="158" rx="18" fill="#FFFFFF" stroke="#F0C9D6"/>
+</g>
+<g class="float">
+  <text x="918" y="143" font-size="10" font-weight="bold" letter-spacing="1.8" fill="#B93962">SIGNAL DETECTED</text>
+  <circle cx="945" cy="190" r="23" fill="#FFF0F4"/>
+  <circle cx="945" cy="190" r="15" fill="none" stroke="#D8527D" stroke-width="2"/>
+  <circle cx="945" cy="190" r="7" fill="none" stroke="#9B123C" stroke-width="2"/>
+  <circle cx="945" cy="190" r="3" fill="#9B123C"/>
+  <text x="980" y="185" font-size="16" font-weight="bold" fill="#351321">Anomaly found</text>
+  <text x="980" y="205" font-size="11" fill="#815365">Unusual pattern detected</text>
+  <rect x="918" y="229" width="264" height="24" rx="7" fill="#FFF0F4"/>
+  <text x="1050" y="245" text-anchor="middle" font-size="10" font-weight="bold" fill="#9B123C">REVIEW REQUIRED</text>
+</g>
 
-  <path d="M505 210 H520 M505 325 H520" stroke="#d8527d"
-        stroke-width="2" stroke-dasharray="4 5"/>
+<!-- Right: decision card -->
+<g filter="url(#shadow)">
+  <rect x="895" y="291" width="310" height="158" rx="18" fill="url(#rose)"/>
+</g>
+<g class="float2">
+  <text x="918" y="322" font-size="10" font-weight="bold" letter-spacing="1.8" fill="#FFE8EF">MODEL DECISION</text>
+  <text x="918" y="359" font-size="27" font-weight="bold" fill="#FFFFFF">HIGH RISK</text>
+  <text x="918" y="381" font-size="11" fill="#FFE8EF">Confidence threshold exceeded</text>
+  <line x1="918" y1="396" x2="1182" y2="396" stroke="#FFFFFF" opacity=".35"/>
+  <circle cx="925" cy="419" r="4" fill="#FFFFFF" class="pulse"/>
+  <text x="938" y="423" font-size="10" font-weight="bold" fill="#FFFFFF">Automated • Explainable • Actionable</text>
+</g>
 
-  <text x="42" y="425" font-size="11" font-weight="bold"
-        letter-spacing="2" fill="#9b123c">SMART DETECTION</text>
-  <text x="758" y="425" text-anchor="end" font-size="11"
-        fill="#a8798a">RISK INTELLIGENCE / 01</text>
+<!-- Neat connectors -->
+<path d="M365 278H383V300H400 M855 190H875V190H895 M855 420H875V370H895" fill="none" stroke="#D8527D" stroke-width="1.8" opacity=".8" class="flow"/>
+<circle cx="383" cy="300" r="3.5" fill="#B93962" class="pulse"/>
+<circle cx="875" cy="190" r="3.5" fill="#B93962" class="pulse"/>
+<circle cx="875" cy="370" r="3.5" fill="#B93962" class="pulse"/>
+
+<!-- Footer -->
+<line x1="65" y1="502" x2="1205" y2="502" stroke="#E9B7C8" opacity=".8"/>
+<text x="65" y="523" font-size="10" font-weight="bold" letter-spacing="1.8" fill="#9B123C">SMART DETECTION</text>
+<text x="635" y="523" text-anchor="middle" font-size="10" fill="#A8798A">DATA → ANALYSIS → CLASSIFICATION → ACTION</text>
+<text x="1205" y="523" text-anchor="end" font-size="10" fill="#9B123C">RISK INTELLIGENCE / 01</text>
 </svg>
